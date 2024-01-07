@@ -7,32 +7,56 @@
   </head>
   <body>
     <main class="layout">
+      <header class="flex w-full justify-between sticky px-3">
+        <button type="button" class="p-12">뒤로가기</button>
+        <button type="button" class="p-12">햄버거</button>
+      </header>
       <section class="hidden" data-step="intro">
         <!-- TODO: 온보딩 디자인 -->
         Intro
-        <button type="button" id="next-step">다음으로</button>
+        <button type="button" class="next-button">다음으로</button>
       </section>
 
       <section class="hidden" data-step="juso">
         <div>
           <h1>출발지와 도착지 정보를 입력해주세요.</h1>
-          <div>
-            <input class="" />
-            <input class="" />
-          </div>
+          <ul id="address">
+            <li>
+              <input class="" type="text" id="startRoadFullAddr" />
+            </li>
+            <li>
+              <input class="" type="text" id="destRoadFullAddr" />
+            </li>
+          </ul>
         </div>
 
         <div>
           <h1>카풀 정보를 입력하세요.</h1>
-          <div>
-            <button type="button">편도</button>
-            <button type="button">왕도</button>
-          </div>
+          <ul id="carpool-type-select">
+            <li>
+              <button
+                type="button"
+                class="carpool-type-button"
+                data-carpool-type="oneWay"
+              >
+                편도
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                class="carpool-type-button"
+                data-carpool-type="roundTrip"
+              >
+                왕복
+              </button>
+            </li>
+          </ul>
         </div>
 
-        <div>
-          <button type="button" id="prev-step">뒤로</button>
-          <button type="button" id="next-step">다음으로</button>
+        <div id="juso-step-button">
+          <button type="button" class="prev-button">뒤로</button>
+          <button type="button" class="next-button">다음으로</button>
         </div>
       </section>
 
@@ -61,5 +85,6 @@
       <section class="hidden" data-step="thanks-phrases"></section>
     </main>
     <script src="./index.ts" type="module"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   </body>
 </html>
