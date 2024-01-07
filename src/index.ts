@@ -1,22 +1,62 @@
-import { setStep, getPrevStep, getNextStep } from './step'
+import { dummyData, wait } from './api'
+import { Step } from './step'
 
 const addressForm = document.getElementById('address') as HTMLUListElement
 
 const passengerCountForm = document.getElementById(
   'passenger-count-form'
 ) as HTMLDivElement
-
 const carpoolTypeForm = document.getElementById(
   'carpool-type-form'
 ) as HTMLDivElement
-
 const startRoadFullAddressInput = document.getElementById(
   'startRoadFullAddr'
 ) as HTMLInputElement
 const destRoadFullAddressInput = document.getElementById(
   'destRoadFullAddr'
 ) as HTMLInputElement
-const carpoolCountInput = document.getElementById('carpool-count')
+const carpoolCountInput = document.getElementById(
+  'carpool-count'
+) as HTMLInputElement
+
+// step 정의
+const step = new Step('intro', [
+  'intro',
+  'juso',
+  'passenger-count',
+  'carpool-count',
+  'result',
+  'presents',
+  'thanks-phrases',
+] as const)
+
+step.subscribe('result', async () => {
+  async function onNextStep() {
+    const formData = getFormData()
+    // FIX: 더미 데이터
+    const data = await wait(() => dummyData)
+  }
+  await onNextStep()
+})
+
+function getFormData() {
+  const start = startRoadFullAddressInput.value
+  const goal = destRoadFullAddressInput.value
+  const carpoolType = carpoolTypeForm.dataset.value as 'oneWay' | 'roundTrip'
+  const passengerNumber = Number(passengerCountForm.dataset.value)
+  const carpoolCount = Number(carpoolCountInput.value)
+  return { start, goal, carpoolType, carpoolCount, passengerNumber }
+}
+
+function registerIntroStep() {
+  // 스텝 변경
+  const nextButton = document.querySelector(
+    '#intro-step-button > .next-button'
+  ) as HTMLElement
+  nextButton.addEventListener('click', () => {
+    step.nextStep()
+  })
+}
 
 function registerJusoStep() {
   const carpoolTypeRadios = document.querySelectorAll(
@@ -61,12 +101,10 @@ function registerJusoStep() {
     '#juso-step-button > .next-button'
   ) as HTMLElement
   prevButton.addEventListener('click', () => {
-    const prevStep = getPrevStep()
-    setStep(prevStep)
+    step.prevStep()
   })
   nextButton.addEventListener('click', () => {
-    const nextStep = getNextStep()
-    setStep(nextStep)
+    step.nextStep()
   })
 }
 
@@ -105,12 +143,10 @@ function registerPassengerCountStep() {
     '#passenger-count-step-button > .next-button'
   ) as HTMLElement
   prevButton.addEventListener('click', () => {
-    const prevStep = getPrevStep()
-    setStep(prevStep)
+    step.prevStep()
   })
   nextButton.addEventListener('click', () => {
-    const nextStep = getNextStep()
-    setStep(nextStep)
+    step.nextStep()
   })
 }
 
@@ -123,12 +159,10 @@ function registerCarpoolCountStep() {
     '#carpool-count-step-button > .next-button'
   ) as HTMLElement
   prevButton.addEventListener('click', () => {
-    const prevStep = getPrevStep()
-    setStep(prevStep)
+    step.prevStep()
   })
   nextButton.addEventListener('click', () => {
-    const nextStep = getNextStep()
-    setStep(nextStep)
+    step.nextStep()
   })
 }
 
@@ -141,19 +175,16 @@ function registerResultStep() {
     '#result-step-button > .presents-button'
   ) as HTMLElement
   prevButton.addEventListener('click', () => {
-    setStep('thanks-phrases')
+    step.setStep('thanks-phrases')
   })
   nextButton.addEventListener('click', () => {
-    setStep('presents')
+    step.setStep('presents')
   })
-}
-
-function fetchFuelPrice() {
-  // TODO: result step이 active 할 때 서버에서 유류비 값 가져오기
 }
 
 function main() {
-  setStep('carpool-count')
+  step.setStep('intro')
+  registerIntroStep()
   registerJusoStep()
   registerPassengerCountStep()
   registerCarpoolCountStep()
