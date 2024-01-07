@@ -32,26 +32,29 @@
 
         <div>
           <h1>카풀 정보를 입력하세요.</h1>
-          <ul id="carpool-type-select">
-            <li>
-              <button
-                type="button"
-                class="carpool-type-button"
-                data-carpool-type="oneWay"
-              >
-                편도
-              </button>
-            </li>
-            <li>
-              <button
-                type="button"
-                class="carpool-type-button"
-                data-carpool-type="roundTrip"
-              >
-                왕복
-              </button>
-            </li>
-          </ul>
+
+          <div id="carpool-type-form">
+            <label>
+              <input
+                type="radio"
+                name="carpool-type"
+                class="peer"
+                value="oneWay"
+                hidden
+              />
+              <span class="peer-checked:bg-violet-75">편도</span>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="carpool-type"
+                class="peer"
+                value="roundTrip"
+                hidden
+              />
+              <span class="peer-checked:bg-violet-75">황복</span>
+            </label>
+          </div>
         </div>
 
         <div id="juso-step-button">

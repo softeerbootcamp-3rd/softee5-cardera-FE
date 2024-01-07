@@ -1,11 +1,13 @@
 import { showStep, getPrevStep, getNextStep } from './step'
 
 const addressForm = document.getElementById('address') as HTMLUListElement
-const carpoolTypeSelect = document.getElementById(
-  'carpool-type-select'
-) as HTMLUListElement
+
 const passengerCountForm = document.getElementById(
   'passenger-count-form'
+) as HTMLDivElement
+
+const carpoolTypeForm = document.getElementById(
+  'carpool-type-form'
 ) as HTMLDivElement
 
 const startRoadFullAddressInput = document.getElementById(
@@ -16,6 +18,10 @@ const destRoadFullAddressInput = document.getElementById(
 ) as HTMLInputElement
 
 function registerJusoStep() {
+  const carpoolTypeRadios = document.querySelectorAll(
+    "input[name='carpool-type']"
+  )
+
   // 출발지, 도착지 주소 정보 검색
   addressForm.addEventListener('click', ({ target }) => {
     if (!target) return
@@ -36,13 +42,14 @@ function registerJusoStep() {
   })
 
   // 편도, 왕복 선택
-  carpoolTypeSelect.addEventListener('click', ({ target }) => {
-    if (!target) return
-    if (target instanceof Element) {
-      // TODO: style 바꾸기
-      const carpoolType = (target as HTMLButtonElement).dataset.carpoolType
-      carpoolTypeSelect.dataset.value = carpoolType
-    }
+  carpoolTypeRadios.forEach((radio) => {
+    radio.addEventListener('change', ({ target }) => {
+      if (!target) return
+      if (target instanceof Element) {
+        const carpoolType = (target as HTMLInputElement).value
+        carpoolTypeForm.dataset.value = carpoolType
+      }
+    })
   })
 
   // 스텝 변경
@@ -74,7 +81,7 @@ function registerPassengerCountStep() {
     radio.addEventListener('change', ({ target }) => {
       if (!target) return
       if (target instanceof Element) {
-        const count = (target as HTMLButtonElement).value
+        const count = (target as HTMLInputElement).value
         passengerCountForm.dataset.value = count
         passengerCountInput.value = ''
       }
@@ -115,7 +122,7 @@ function fetchFuelPrice() {
 }
 
 function main() {
-  showStep('passenger-count')
+  showStep('juso')
   registerJusoStep()
   registerPassengerCountStep()
   registerCarpoolCountStep()
