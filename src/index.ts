@@ -1,4 +1,4 @@
-import { showStep, getPrevStep, getNextStep } from './step'
+import { setStep, getPrevStep, getNextStep } from './step'
 
 const addressForm = document.getElementById('address') as HTMLUListElement
 
@@ -16,6 +16,7 @@ const startRoadFullAddressInput = document.getElementById(
 const destRoadFullAddressInput = document.getElementById(
   'destRoadFullAddr'
 ) as HTMLInputElement
+const carpoolCountInput = document.getElementById('carpool-count')
 
 function registerJusoStep() {
   const carpoolTypeRadios = document.querySelectorAll(
@@ -61,11 +62,11 @@ function registerJusoStep() {
   ) as HTMLElement
   prevButton.addEventListener('click', () => {
     const prevStep = getPrevStep()
-    showStep(prevStep)
+    setStep(prevStep)
   })
   nextButton.addEventListener('click', () => {
     const nextStep = getNextStep()
-    showStep(nextStep)
+    setStep(nextStep)
   })
 }
 
@@ -105,24 +106,54 @@ function registerPassengerCountStep() {
   ) as HTMLElement
   prevButton.addEventListener('click', () => {
     const prevStep = getPrevStep()
-    showStep(prevStep)
+    setStep(prevStep)
   })
   nextButton.addEventListener('click', () => {
     const nextStep = getNextStep()
-    showStep(nextStep)
+    setStep(nextStep)
   })
 }
 
-function registerCarpoolCountStep() {}
+function registerCarpoolCountStep() {
+  // 스텝 변경
+  const prevButton = document.querySelector(
+    '#carpool-count-step-button > .prev-button'
+  ) as HTMLElement
+  const nextButton = document.querySelector(
+    '#carpool-count-step-button > .next-button'
+  ) as HTMLElement
+  prevButton.addEventListener('click', () => {
+    const prevStep = getPrevStep()
+    setStep(prevStep)
+  })
+  nextButton.addEventListener('click', () => {
+    const nextStep = getNextStep()
+    setStep(nextStep)
+  })
+}
 
-function registerResultStep() {}
+function registerResultStep() {
+  // 스텝 변경
+  const prevButton = document.querySelector(
+    '#result-step-button > .thanks-button'
+  ) as HTMLElement
+  const nextButton = document.querySelector(
+    '#result-step-button > .presents-button'
+  ) as HTMLElement
+  prevButton.addEventListener('click', () => {
+    setStep('thanks-phrases')
+  })
+  nextButton.addEventListener('click', () => {
+    setStep('presents')
+  })
+}
 
 function fetchFuelPrice() {
   // TODO: result step이 active 할 때 서버에서 유류비 값 가져오기
 }
 
 function main() {
-  showStep('juso')
+  setStep('carpool-count')
   registerJusoStep()
   registerPassengerCountStep()
   registerCarpoolCountStep()

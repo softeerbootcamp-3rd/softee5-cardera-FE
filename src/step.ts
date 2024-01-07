@@ -63,7 +63,7 @@ export function getNextStep() {
  * TODO session storage 에서 data resotre 해오기
  * @param step 화면에 스텝
  */
-export function showStep(step: Step) {
+export function setStep(step: Step) {
   stepElements.forEach((stepElement) => {
     if (stepElement.dataset.step === step) {
       stepElement.classList.remove('hidden')

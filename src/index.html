@@ -112,7 +112,15 @@
       <section class="hidden" data-step="carpool-count">
         <h1>지금까지 카풀한 횟수를<br />알려주세요.</h1>
         <p>편도를 1회로 계산할게요!</p>
-        <input type="number" />
+        <label for="carpool-count">
+          <input type="number" id="carpool-count" />
+          <span>회</span>
+        </label>
+
+        <div id="carpool-count-step-button">
+          <button type="button" class="prev-button">뒤로</button>
+          <button type="button" class="next-button">다음으로</button>
+        </div>
       </section>
 
       <section class="hidden" data-step="result">
@@ -120,11 +128,17 @@
         <p>카풀 해주신 고마운 분께 수고비를 추가하시겠어요?</p>
         <ul id="tip-option"></ul>
         <div>12,234원</div>
+        <div id="result-step-button">
+          <button type="button" class="thanks-button">괜찮아요</button>
+          <button type="button" class="presents-button">선물 추천받기</button>
+        </div>
       </section>
 
-      <section class="hidden" data-step="presents"></section>
+      <section class="hidden" data-step="presents">presents</section>
 
-      <section class="hidden" data-step="thanks-phrases"></section>
+      <section class="hidden" data-step="thanks-phrases">
+        thanks-phrases
+      </section>
     </main>
     <script src="./index.ts" type="module"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
