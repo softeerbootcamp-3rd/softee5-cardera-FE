@@ -1,53 +1,19 @@
-const steps = [
-  'intro',
-  'juso',
-  'passenger-count',
-  'carpool-count',
-  'result',
-  'presents',
-  'thanks-phrases',
-] as const
-type Step = (typeof steps)[number]
+import { showStep, getPrevStep, getNextStep } from './step'
 
-const stepElements = document.querySelectorAll(
-  '[data-step]'
-) as NodeListOf<HTMLSelectElement>
 const addressForm = document.getElementById('address') as HTMLUListElement
 const carpoolTypeSelect = document.getElementById(
   'carpool-type-select'
 ) as HTMLUListElement
+const passengerCountForm = document.getElementById(
+  'passenger-count-form'
+) as HTMLDivElement
+
 const startRoadFullAddressInput = document.getElementById(
   'startRoadFullAddr'
 ) as HTMLInputElement
 const destRoadFullAddressInput = document.getElementById(
   'destRoadFullAddr'
 ) as HTMLInputElement
-
-function getCurrentStep(): Step {
-  return Array.from(stepElements).find(
-    (element) => !element.classList.contains('hidden')
-  )?.dataset.step as Step
-}
-
-function getCurrentStepIndex() {
-  return steps.indexOf(getCurrentStep())
-}
-/**
- * step에 따라 화면에 스텝을 노출
- * TODO session storage 에서 data resotre 해오기
- * @param step 화면에 스텝
- */
-function showStep(step: Step) {
-  stepElements.forEach((stepElement) => {
-    if (stepElement.dataset.step === step) {
-      stepElement.classList.remove('hidden')
-      return
-    }
-    if (stepElement.classList.contains('hidden') === false) {
-      stepElement.classList.add('hidden')
-    }
-  })
-}
 
 function registerJusoStep() {
   // 출발지, 도착지 주소 정보 검색
@@ -73,7 +39,7 @@ function registerJusoStep() {
   carpoolTypeSelect.addEventListener('click', ({ target }) => {
     if (!target) return
     if (target instanceof Element) {
-      // TODO: style 바꾸기, data-value 심기
+      // TODO: style 바꾸기
       const carpoolType = (target as HTMLButtonElement).dataset.carpoolType
       carpoolTypeSelect.dataset.value = carpoolType
     }
@@ -87,26 +53,58 @@ function registerJusoStep() {
     '#juso-step-button > .next-button'
   ) as HTMLElement
   prevButton.addEventListener('click', () => {
-    // TODO prev step 구하는 로직 분리
-    const currentStep = getCurrentStep()
-    const currentStepIndex = getCurrentStepIndex()
-    const prevStep =
-      currentStepIndex === 0 ? currentStep : steps[currentStepIndex - 1]
+    const prevStep = getPrevStep()
     showStep(prevStep)
   })
   nextButton.addEventListener('click', () => {
-    // TODO next step 구하는 로직 분리
-    const currentStep = getCurrentStep()
-    const currentStepIndex = getCurrentStepIndex()
-    const nextStep =
-      currentStepIndex === steps.length - 1
-        ? currentStep
-        : steps[currentStepIndex + 1]
+    const nextStep = getNextStep()
     showStep(nextStep)
   })
 }
 
-function registerPassengerCountStep() {}
+function registerPassengerCountStep() {
+  const passengerCountRadios = document.querySelectorAll<HTMLInputElement>(
+    "input[name='passenger-count']"
+  )
+  const passengerCountInput = document.getElementById(
+    'passenger-count-input'
+  ) as HTMLInputElement
+
+  passengerCountRadios.forEach((radio) => {
+    radio.addEventListener('change', ({ target }) => {
+      if (!target) return
+      if (target instanceof Element) {
+        const count = (target as HTMLButtonElement).value
+        passengerCountForm.dataset.value = count
+        passengerCountInput.value = ''
+      }
+    })
+  })
+  passengerCountInput.addEventListener('change', (event) => {
+    // @ts-ignore
+    passengerCountForm.dataset.value = event.target.value
+    // 기존에 선택된 것 모두 제거
+    passengerCountRadios.forEach((ele) => {
+      ele.checked = false
+    })
+  })
+
+  // 스텝 변경
+  const prevButton = document.querySelector(
+    '#passenger-count-step-button > .prev-button'
+  ) as HTMLElement
+  const nextButton = document.querySelector(
+    '#passenger-count-step-button > .next-button'
+  ) as HTMLElement
+  prevButton.addEventListener('click', () => {
+    const prevStep = getPrevStep()
+    showStep(prevStep)
+  })
+  nextButton.addEventListener('click', () => {
+    const nextStep = getNextStep()
+    showStep(nextStep)
+  })
+}
 
 function registerCarpoolCountStep() {}
 
@@ -117,7 +115,7 @@ function fetchFuelPrice() {
 }
 
 function main() {
-  showStep('juso')
+  showStep('passenger-count')
   registerJusoStep()
   registerPassengerCountStep()
   registerCarpoolCountStep()

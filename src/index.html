@@ -63,8 +63,47 @@
       <section class="hidden" data-step="passenger-count">
         <h1>함께 동승한 인원을 알려주세요.</h1>
         <p>운전자를 표함해서 알려주세요!</p>
-        <ul id=""></ul>
-        <input type="number" />
+
+        <div id="passenger-count-form">
+          <div>
+            <label>
+              <input
+                type="radio"
+                name="passenger-count"
+                class="peer"
+                value="2"
+                hidden
+              />
+              <span class="peer-checked:bg-violet-75">2명</span>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="passenger-count"
+                class="peer"
+                value="3"
+                hidden
+              />
+              <span class="peer-checked:bg-violet-75">3명</span>
+            </label>
+            <label>
+              <input
+                type="radio"
+                class="peer"
+                name="passenger-count"
+                value="4"
+                hidden
+              />
+              <span class="peer-checked:bg-violet-75">4명</span>
+            </label>
+          </div>
+          <input type="number" id="passenger-count-input" />
+        </div>
+
+        <div id="passenger-count-step-button">
+          <button type="button" class="prev-button">뒤로</button>
+          <button type="button" class="next-button">다음으로</button>
+        </div>
       </section>
 
       <section class="hidden" data-step="carpool-count">
