@@ -9,4 +9,13 @@
     font-size: 62.5%;
     font-family: 'Pretendard Variable', system-ui, sans-serif;
   }
+  .layout {
+    margin: auto;
+    width: 100vw;
+    max-width: 390px;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+      0 4px 6px -4px rgb(0 0 0 / 0.1);
+    height: fit-content;
+    min-height: 100dvh;
+  }
 }

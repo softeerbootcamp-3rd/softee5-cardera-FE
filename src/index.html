@@ -2,12 +2,64 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>My First Parcel App</title>
+    <title>카더라 - 카풀 답례, 이정도라 카더라</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="root">
-      <h1 class="bg-violet-500 text-white text-h1">Hello, World!</h1>
-    </div>
+    <main class="layout">
+      <section class="hidden" data-step="intro">
+        <!-- TODO: 온보딩 디자인 -->
+        Intro
+        <button type="button" id="next-step">다음으로</button>
+      </section>
+
+      <section class="hidden" data-step="juso">
+        <div>
+          <h1>출발지와 도착지 정보를 입력해주세요.</h1>
+          <div>
+            <input class="" />
+            <input class="" />
+          </div>
+        </div>
+
+        <div>
+          <h1>카풀 정보를 입력하세요.</h1>
+          <div>
+            <button type="button">편도</button>
+            <button type="button">왕도</button>
+          </div>
+        </div>
+
+        <div>
+          <button type="button" id="prev-step">뒤로</button>
+          <button type="button" id="next-step">다음으로</button>
+        </div>
+      </section>
+
+      <section class="hidden" data-step="passenger-count">
+        <h1>함께 동승한 인원을 알려주세요.</h1>
+        <p>운전자를 표함해서 알려주세요!</p>
+        <ul id=""></ul>
+        <input type="number" />
+      </section>
+
+      <section class="hidden" data-step="carpool-count">
+        <h1>지금까지 카풀한 횟수를<br />알려주세요.</h1>
+        <p>편도를 1회로 계산할게요!</p>
+        <input type="number" />
+      </section>
+
+      <section class="hidden" data-step="result">
+        <h1>카풀 비용 계산을<br />완료했습니다!</h1>
+        <p>카풀 해주신 고마운 분께 수고비를 추가하시겠어요?</p>
+        <ul id="tip-option"></ul>
+        <div>12,234원</div>
+      </section>
+
+      <section class="hidden" data-step="presents"></section>
+
+      <section class="hidden" data-step="thanks-phrases"></section>
+    </main>
+    <script src="./index.ts" type="module"></script>
   </body>
 </html>
