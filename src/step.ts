@@ -2,31 +2,33 @@ export const stepElements = document.querySelectorAll(
   '[data-step]'
 ) as NodeListOf<HTMLSelectElement>
 
-export class Step<T extends string[]> {
-  observers: { [step: string]: any[] }
-  steps: T
-  currentStep: T[number]
+type NonEmptyArray<T> = readonly [T, ...T[]]
 
-  constructor(currentStep: T[number], steps: T) {
+export class Step<Steps extends NonEmptyArray<string>> {
+  observers: { [step: string]: any[] }
+  steps: Steps
+  currentStep: Steps[number]
+
+  constructor(currentStep: Steps[number], steps: Steps) {
     this.observers = {}
     this.steps = steps
     this.currentStep = currentStep
   }
 
-  subscribe(step: T[number], func) {
+  subscribe(step: Steps[number], func) {
     if (typeof this.observers[step] === 'undefined') {
       this.observers[step] = []
     }
     this.observers[step].push(func)
   }
 
-  unsubscribe(step: T[number], func) {
+  unsubscribe(step: Steps[number], func) {
     this.observers[step] = this.observers[step]?.filter(
       (observer) => observer !== func
     )
   }
 
-  setStep(step: T[number]) {
+  setStep(step: Steps[number]) {
     stepElements.forEach(async (stepElement) => {
       if (stepElement.dataset.step === step) {
         stepElement.classList.remove('hidden')
