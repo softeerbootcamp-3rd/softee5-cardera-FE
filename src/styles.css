@@ -5,29 +5,29 @@
 @tailwind utilities;
 
 @layer base {
-  html {
+  html,
+  body {
     font-size: 62.5%;
     font-family: 'Pretendard Variable', system-ui, sans-serif;
     height: 100%;
     width: 100%;
-  }
-  body {
-    height: 100%;
-    width: 100%;
+    padding: 0;
+    margin: 0;
   }
   .wrapper {
     height: 100%;
+    width: 100%;
+  }
+  .layout {
+    min-height: calc(100dvh - 48px);
     margin: 0 auto;
     max-width: 390px;
     box-shadow:
       0 10px 15px -3px rgb(0 0 0 / 0.1),
       0 4px 6px -4px rgb(0 0 0 / 0.1);
   }
-  .layout {
-    height: calc(100dvh - 48px);
-    width: 100%;
-  }
 
+  /* Tooltip Styles */
   .tooltiptext {
     @apply bg-gray-900 text-center text-c2 text-white;
     position: absolute;
@@ -48,5 +48,46 @@
     border-width: 5px;
     border-style: solid;
     border-color: #292e41 transparent transparent transparent;
+  }
+
+  /* Tab Styles */
+  #tab-container {
+  }
+
+  #tab-headings {
+  }
+
+  #tab-buttons {
+    @apply relative flex border-b border-gray-200 text-b2-semibold text-black;
+  }
+  .tab-button {
+    @apply flex-1 py-10;
+  }
+  .tab-button[data-tab-id='tab1'] {
+    &[data-state='active'] {
+      & ~ .tab-slider {
+        transform: translateX(0);
+      }
+    }
+  }
+  .tab-button[data-tab-id='tab2'] {
+    &[data-state='active'] {
+      & ~ .tab-slider {
+        transform: translateX(100%);
+      }
+    }
+  }
+
+  .tab-slider {
+    @apply bottom-0 bg-violet-300;
+    position: absolute;
+    display: flex;
+    height: 2px;
+    width: 50%;
+    z-index: 1;
+    transition: 0.25s ease-out;
+  }
+
+  #tab-contents {
   }
 }

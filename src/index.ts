@@ -1,6 +1,8 @@
 import { dummyData, wait } from './api'
 import { Step } from './step'
 
+const header = document.getElementById('header') as HTMLHeadElement
+
 const addressForm = document.getElementById('address') as HTMLUListElement
 
 const passengerCountForm = document.getElementById(
@@ -28,7 +30,36 @@ const step = new Step('intro', [
   'thanks-phrases',
 ] as const)
 
+function setHeader() {
+  header.innerHTML = `
+    <button type="button" class="prev-button">
+      <img src="../assets/back.svg" />
+    </button>
+    <button type="button">
+      <img src="../assets/menu.svg" />
+    </button>
+  `
+  header.querySelector('.prev-button')?.addEventListener('click', () => {
+    step.prevStep()
+  })
+}
+step.subscribe('intro', () => {
+  header.innerHTML = ''
+})
+step.subscribe('juso', () => {
+  setHeader()
+})
+step.subscribe('passenger-count', () => {
+  setHeader()
+})
+step.subscribe('carpool-count', () => {
+  setHeader()
+})
+step.subscribe('presents', () => {
+  setHeader()
+})
 step.subscribe('result', async () => {
+  setHeader()
   const formData = getFormData()
   // FIX: 더미 데이터를 실제 API 로 변경
   const { fuelPrice, tipOptions } = await wait(() => dummyData)
@@ -64,6 +95,9 @@ step.subscribe('result', async () => {
       tipDescription!.innerHTML = `${tipOptions[
         index
       ].choiceCount.toLocaleString()}명의 유저가 선택했어요!`
+      fuelPriceElement.innerHTML = `${(
+        Number(tip) * fuelPrice
+      ).toLocaleString()} 원`
     })
   })
 })

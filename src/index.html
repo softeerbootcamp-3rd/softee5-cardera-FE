@@ -8,10 +8,12 @@
   </head>
   <body>
     <div class="wrapper">
-      <header class="sticky top-0 flex w-full justify-between px-3">
-        <button type="button" class="p-12">뒤로가기</button>
-        <button type="button" class="p-12">햄버거</button>
-      </header>
+      <div>
+      <header
+        id="header"
+        class="sticky top-0 z-[1500] flex h-48 w-full justify-between bg-white px-3"
+      ></header>
+
       <main class="layout">
         <section class="hidden" data-step="intro">
           <!-- TODO: 온보딩 디자인 -->
@@ -22,15 +24,12 @@
         </section>
 
         <!-- 출발지, 도착지 입력 스텝 -->
-        <section
-          class="relative flex hidden h-full flex-col px-20"
-          data-step="juso"
-        >
-          <div class="flex-1">
-            <h1 class="mt-60 text-h3 text-gray-900">
+        <section class="relative flex h-full flex-col px-20" data-step="juso">
+          <div class="pt-60">
+            <h1 class="text-h3 text-gray-900">
               출발지와 도착지 정보를 입력해주세요.
             </h1>
-            <ul id="address" class="mt-58">
+            <ul id="address" class="mt-58 flex flex-col gap-8">
               <li>
                 <input
                   class="w-full border-b border-gray-200 px-16 pb-17 pt-15 text-b2-semibold text-gray-900 placeholder:text-b2-regular placeholder:text-gray-400 [&:not(:placeholder-shown)]:border-violet-300"
@@ -242,7 +241,66 @@
           </div>
         </section>
 
-        <section class="hidden" data-step="presents">presents</section>
+        <section
+          class="relative flex hidden h-full flex-col"
+          data-step="presents"
+        >
+          <div id="tab-container" class="w-full">
+            <!-- tab heading -->
+            <div id="tab-headings" class="mt-24">
+              <h1
+                data-tab-id="tab1"
+                class="tab-heading px-20 text-h3 text-gray-900"
+              >
+                카풀 비용에 맞는 현금성<br />상품권을 추천해드릴게요!
+              </h1>
+              <h1
+                data-tab-id="tab2"
+                class="tab-heading px-20 text-h3 text-gray-900"
+                hidden
+              >
+                돈은 정 없다구요?<br />마음을 담은 선물은 어떠세요?
+              </h1>
+            </div>
+
+            <!-- tab button -->
+            <nav role="tablist" id="tab-buttons" class="mt-48" tabindex="0">
+              <button
+                type="button"
+                role="tab"
+                class="tab-button"
+                tabindex="-1"
+                data-tab-id="tab1"
+                data-state="active"
+              >
+                현금성 상품권
+              </button>
+              <button
+                type="button"
+                role="tab"
+                class="tab-button"
+                tabindex="-1"
+                data-tab-id="tab2"
+                data-state="inactive"
+              >
+                마음을 담은 선물
+              </button>
+              <div class="tab-slider"></div>
+            </nav>
+
+            <!-- tab contents -->
+            <ul id="tab-contents" class="mt-14">
+              <li role="tabpanel" data-tab-id="tab1" tabindex="0" class=""></li>
+              <li
+                role="tabpanel"
+                data-tab-id="tab2"
+                tabindex="0"
+                class="h-[200vh]"
+                hidden
+              ></li>
+            </ul>
+          </div>
+        </section>
 
         <section class="hidden" data-step="thanks-phrases">
           thanks-phrases
@@ -250,6 +308,7 @@
       </main>
     </div>
     <script src="./index.ts" type="module"></script>
+    <script src="./tabs.ts" type="module"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   </body>
 </html>
