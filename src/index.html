@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -8,7 +8,7 @@
   </head>
   <body>
     <main class="layout">
-      <header class="flex w-full justify-between sticky px-3">
+      <header class="sticky flex w-full justify-between px-3">
         <button type="button" class="p-12">뒤로가기</button>
         <button type="button" class="p-12">햄버거</button>
       </header>
@@ -33,35 +33,7 @@
           </ul>
         </div>
 
-        <div>
-          <h1>카풀 정보를 입력하세요.</h1>
-
-          <div id="carpool-type-form">
-            <label>
-              <input
-                type="radio"
-                name="carpool-type"
-                class="peer"
-                value="oneWay"
-                hidden
-              />
-              <span class="peer-checked:bg-violet-75">편도</span>
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="carpool-type"
-                class="peer"
-                value="roundTrip"
-                hidden
-              />
-              <span class="peer-checked:bg-violet-75">황복</span>
-            </label>
-          </div>
-        </div>
-
         <div id="juso-step-button">
-          <button type="button" class="prev-button">뒤로</button>
           <button type="button" class="next-button">다음으로</button>
         </div>
       </section>

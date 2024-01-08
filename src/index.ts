@@ -6,9 +6,6 @@ const addressForm = document.getElementById('address') as HTMLUListElement
 const passengerCountForm = document.getElementById(
   'passenger-count-form'
 ) as HTMLDivElement
-const carpoolTypeForm = document.getElementById(
-  'carpool-type-form'
-) as HTMLDivElement
 const startRoadFullAddressInput = document.getElementById(
   'startRoadFullAddr'
 ) as HTMLInputElement
@@ -74,10 +71,9 @@ step.subscribe('result', async () => {
 function getFormData() {
   const start = startRoadFullAddressInput.value
   const goal = destRoadFullAddressInput.value
-  const carpoolType = carpoolTypeForm.dataset.value as 'oneWay' | 'roundTrip'
   const passengerNumber = Number(passengerCountForm.dataset.value)
   const carpoolCount = Number(carpoolCountInput.value)
-  return { start, goal, carpoolType, carpoolCount, passengerNumber }
+  return { start, goal, carpoolCount, passengerNumber }
 }
 
 function registerIntroStep() {
@@ -91,10 +87,6 @@ function registerIntroStep() {
 }
 
 function registerJusoStep() {
-  const carpoolTypeRadios = document.querySelectorAll(
-    "input[name='carpool-type']"
-  )
-
   // 출발지, 도착지 주소 정보 검색
   addressForm.addEventListener('click', ({ target }) => {
     if (!target) return
@@ -114,27 +106,10 @@ function registerJusoStep() {
     }
   })
 
-  // 편도, 왕복 선택
-  carpoolTypeRadios.forEach((radio) => {
-    radio.addEventListener('change', ({ target }) => {
-      if (!target) return
-      if (target instanceof Element) {
-        const carpoolType = (target as HTMLInputElement).value
-        carpoolTypeForm.dataset.value = carpoolType
-      }
-    })
-  })
-
   // 스텝 변경
-  const prevButton = document.querySelector(
-    '#juso-step-button > .prev-button'
-  ) as HTMLElement
   const nextButton = document.querySelector(
     '#juso-step-button > .next-button'
   ) as HTMLElement
-  prevButton.addEventListener('click', () => {
-    step.prevStep()
-  })
   nextButton.addEventListener('click', () => {
     step.nextStep()
   })
@@ -215,7 +190,7 @@ function registerResultStep() {
 }
 
 function main() {
-  step.setStep('result')
+  step.setStep('juso')
   registerIntroStep()
   registerJusoStep()
   registerPassengerCountStep()
