@@ -18,6 +18,7 @@ const destRoadFullAddressInput = document.getElementById(
 const carpoolCountInput = document.getElementById(
   'carpool-count'
 ) as HTMLInputElement
+const tipOptionsElement = document.getElementById('tip-options') as HTMLElement
 
 // step 정의
 const step = new Step('intro', [
@@ -31,12 +32,43 @@ const step = new Step('intro', [
 ] as const)
 
 step.subscribe('result', async () => {
-  async function onNextStep() {
-    const formData = getFormData()
-    // FIX: 더미 데이터
-    const data = await wait(() => dummyData)
-  }
-  await onNextStep()
+  const formData = getFormData()
+  // FIX: 더미 데이터를 실제 API 로 변경
+  const { fuelPrice, tipOptions } = await wait(() => dummyData)
+
+  const fuelPriceElement = document.getElementById('fuel-price') as HTMLElement
+
+  fuelPriceElement.innerHTML = `${fuelPrice.toLocaleString()} 원`
+  tipOptionsElement.innerHTML = tipOptions
+    .map((option) => {
+      return `
+        <label>
+          <input
+            type="radio"
+            class="peer"
+            name="tip-option"
+            value="${option.multiple}"
+            hidden
+          />
+          <span class="bg-gray-200 peer-checked:bg-black peer-checked:text-white">x ${option.multiple}배</span>
+        </label>
+      `
+    })
+    .join('')
+
+  const tipOptionRadios = document.querySelectorAll("input[name='tip-option']")
+  const tipDescription = document.getElementById('tip-description')
+
+  tipOptionRadios.forEach((radio, index) => {
+    radio.addEventListener('change', ({ target }) => {
+      if (!target) return
+      const tip = (target as HTMLInputElement).value
+      tipOptionsElement.dataset.value = tip
+      tipDescription!.innerHTML = `${tipOptions[
+        index
+      ].choiceCount.toLocaleString()}명의 유저가 선택했어요!`
+    })
+  })
 })
 
 function getFormData() {
@@ -183,7 +215,7 @@ function registerResultStep() {
 }
 
 function main() {
-  step.setStep('intro')
+  step.setStep('result')
   registerIntroStep()
   registerJusoStep()
   registerPassengerCountStep()

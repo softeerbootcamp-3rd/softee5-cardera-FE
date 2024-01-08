@@ -129,11 +129,21 @@
       <section class="hidden" data-step="result">
         <h1>카풀 비용 계산을<br />완료했습니다!</h1>
         <p>카풀 해주신 고마운 분께 수고비를 추가하시겠어요?</p>
-        <ul id="tip-option"></ul>
-        <div>12,234원</div>
+        <div>
+          <div id="tip-options"></div>
+          <p id="tip-description">가장 많은 유저들이 1.5배의 팁을 선택해요!</p>
+        </div>
+
+        <div id="fuel-price"></div>
+
         <div id="result-step-button">
           <button type="button" class="thanks-button">괜찮아요</button>
-          <button type="button" class="presents-button">선물 추천받기</button>
+          <button type="button" class="presents-button relative">
+            <span id="tool-tip" class="absolute hidden"
+              >비용을 대체할만한 선물을 추천해드려요</span
+            >
+            선물 추천받기
+          </button>
         </div>
       </section>
 

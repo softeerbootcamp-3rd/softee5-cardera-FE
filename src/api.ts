@@ -20,7 +20,6 @@ const checkedFetch = async <T = any>(...params: Parameters<typeof fetch>) => {
 interface Params {
   start: string
   goal: string
-  carpoolType: 'oneWay' | 'roundTrip'
   passengerNumber: number
   carpoolCount: number
 }
@@ -32,12 +31,11 @@ interface GetFuelPriceResponse {
 export async function getFuelPrice({
   start,
   goal,
-  carpoolType,
   passengerNumber,
   carpoolCount,
 }: Params) {
   return await checkedFetch<GetFuelPriceResponse>(
-    `/calculation?start=${start}&goal=${goal}&carpoolType=${carpoolType}&passengerNumber=${passengerNumber}&carpoolCount=${carpoolCount}`
+    `/calculation?start=${start}&goal=${goal}&passengerNumber=${passengerNumber}&carpoolCount=${carpoolCount}`
   )
 }
 export const dummyData = {
@@ -45,19 +43,19 @@ export const dummyData = {
   tipOptions: [
     {
       multiple: 1.0,
-      choiceCount: 20,
+      choiceCount: 200,
     },
     {
       multiple: 1.2,
-      choiceCount: 20,
+      choiceCount: 20230,
     },
     {
       multiple: 1.5,
-      choiceCount: 10,
+      choiceCount: 1023,
     },
     {
       multiple: 2,
-      choiceCount: 50,
+      choiceCount: 5000,
     },
   ],
 }
