@@ -8,12 +8,23 @@
   html {
     font-size: 62.5%;
     font-family: 'Pretendard Variable', system-ui, sans-serif;
+    height: 100%;
+    width: 100%;
+  }
+  body {
+    height: 100%;
+    width: 100%;
+  }
+  .wrapper {
+    height: 100%;
+    margin: 0 auto;
+    max-width: 390px;
+    box-shadow:
+      0 10px 15px -3px rgb(0 0 0 / 0.1),
+      0 4px 6px -4px rgb(0 0 0 / 0.1);
   }
   .layout {
-    margin: 0 auto;
-    max-width: 39rem;
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
-      0 4px 6px -4px rgb(0 0 0 / 0.1);
-    min-height: 100dvh;
+    height: calc(100dvh - 48px);
+    width: 100%;
   }
 }
