@@ -149,17 +149,46 @@
           </div>
         </section>
 
-        <section class="hidden" data-step="carpool-count">
-          <h1>지금까지 카풀한 횟수를<br />알려주세요.</h1>
-          <p>편도를 1회로 계산할게요!</p>
-          <label for="carpool-count">
-            <input type="number" id="carpool-count" />
-            <span>회</span>
-          </label>
+        <!-- 카플 횟수 입력 스텝 -->
+        <section
+          class="relative flex hidden h-full flex-col px-20"
+          data-step="carpool-count"
+        >
+          <div class="flex-1">
+            <h1 class="mt-60 text-h3 text-gray-900">
+              지금까지 카풀한 횟수를<br />알려주세요.
+            </h1>
+            <p class="mt-10 text-b3-regular text-gray-500">
+              편도를 1회로 계산할게요!
+            </p>
 
-          <div id="carpool-count-step-button">
-            <button type="button" class="prev-button">뒤로</button>
-            <button type="button" class="next-button">다음으로</button>
+            <div class="relative mt-60" for="carpool-count">
+              <input
+                type="number"
+                placeholder="횟수를 입력해 주세요."
+                class="w-full rounded-5 border border-gray-200 bg-white py-10 pl-28 pr-42 text-right align-middle text-h1 text-violet-300 placeholder:text-left placeholder:text-b1-semibold placeholder:text-gray-400"
+                id="carpool-count"
+              />
+              <span
+                class="absolute right-18 translate-y-1/2 text-h3 text-gray-900"
+                >회</span
+              >
+            </div>
+          </div>
+
+          <div id="carpool-count-step-button" class="flex gap-10">
+            <button
+              type="button"
+              class="prev-button flex-[30] rounded-8 bg-gray-200 py-18 text-center text-b1-semibold text-gray-700"
+            >
+              이전으로
+            </button>
+            <button
+              type="button"
+              class="next-button flex-[77] rounded-8 bg-violet-300 py-18 text-center text-b1-semibold text-white"
+            >
+              다음으로
+            </button>
           </div>
         </section>
 
