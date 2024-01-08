@@ -14,17 +14,17 @@
     padding: 0;
     margin: 0;
   }
-  .wrapper {
-    height: 100%;
+  .app {
     width: 100%;
-  }
-  .layout {
-    min-height: calc(100dvh - 48px);
-    margin: 0 auto;
     max-width: 390px;
+    margin: 0 auto;
     box-shadow:
       0 10px 15px -3px rgb(0 0 0 / 0.1),
       0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+
+  .layout {
+    min-height: calc(100dvh - 48px);
   }
 
   /* Tooltip Styles */

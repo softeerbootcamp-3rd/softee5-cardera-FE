@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="wrapper">
-      <div>
+    <div class="app">
       <header
         id="header"
         class="sticky top-0 z-[1500] flex h-48 w-full justify-between bg-white px-3"
@@ -24,8 +23,11 @@
         </section>
 
         <!-- 출발지, 도착지 입력 스텝 -->
-        <section class="relative flex h-full flex-col px-20" data-step="juso">
-          <div class="pt-60">
+        <section
+          class="relative flex hidden h-[calc(100dvh-48px)] flex-col px-20"
+          data-step="juso"
+        >
+          <div class="flex-1 pt-60">
             <h1 class="text-h3 text-gray-900">
               출발지와 도착지 정보를 입력해주세요.
             </h1>
@@ -61,7 +63,7 @@
 
         <!-- 동승자 수 입력 스텝 -->
         <section
-          class="relative flex hidden h-full flex-col px-20"
+          class="relative flex hidden h-[calc(100dvh-48px)] flex-col px-20"
           data-step="passenger-count"
         >
           <div class="flex-1">
@@ -150,7 +152,7 @@
 
         <!-- 카플 횟수 입력 스텝 -->
         <section
-          class="relative flex hidden h-full flex-col px-20"
+          class="relative flex hidden h-[calc(100dvh-48px)] flex-col px-20"
           data-step="carpool-count"
         >
           <div class="flex-1">
@@ -193,7 +195,7 @@
 
         <!-- 결과 스텝 -->
         <section
-          class="relative flex hidden h-full flex-col px-20"
+          class="relative flex hidden h-[calc(100dvh-48px)] flex-col px-20"
           data-step="result"
         >
           <div class="flex-1">
@@ -242,7 +244,7 @@
         </section>
 
         <section
-          class="relative flex hidden h-full flex-col"
+          class="relative flex hidden h-full flex-col px-20"
           data-step="presents"
         >
           <div id="tab-container" class="w-full">
