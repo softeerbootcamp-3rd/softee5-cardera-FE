@@ -24,6 +24,7 @@
   }
 
   .layout {
+    position: relative;
     min-height: calc(100dvh - 48px);
   }
 
@@ -89,5 +90,47 @@
   }
 
   #tab-contents {
+  }
+
+  /* Step Slider Styles */
+  #step-slider-container {
+    @apply hidden;
+  }
+
+  .layout {
+    section[data-step='juso'],
+    section[data-step='passenger-count'],
+    section[data-step='carpool-count'] {
+      &:not(.hidden) ~ ul#step-slider-container {
+        @apply absolute top-2 flex h-2 w-full gap-4 px-20;
+      }
+    }
+  }
+
+  .layout section[data-step='juso'] {
+    &:not(.hidden) {
+      & ~ ul .step-slider {
+        transform: translateX(0);
+      }
+    }
+  }
+  .layout section[data-step='passenger-count'] {
+    &:not(.hidden) {
+      & ~ ul .step-slider {
+        transform: translateX(calc(100% + 5px));
+      }
+    }
+  }
+  .layout section[data-step='carpool-count'] {
+    &:not(.hidden) {
+      & ~ ul .step-slider {
+        transform: translateX(calc(200% + 10px));
+      }
+    }
+  }
+  .step-slider {
+    @apply absolute h-2 w-[calc(33%-16px)] rounded-full bg-violet-300;
+    transition: 0.25s ease-out;
+    z-index: 1;
   }
 }

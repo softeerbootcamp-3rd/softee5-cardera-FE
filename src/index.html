@@ -14,6 +14,7 @@
       ></header>
 
       <main class="layout">
+        <!-- 온보딩 스텝 -->
         <section class="hidden" data-step="intro">
           <!-- TODO: 온보딩 디자인 -->
           Intro
@@ -150,7 +151,7 @@
           </div>
         </section>
 
-        <!-- 카플 횟수 입력 스텝 -->
+        <!-- 카풀 횟수 입력 스텝 -->
         <section
           class="relative flex hidden h-[calc(100dvh-48px)] flex-col px-20"
           data-step="carpool-count"
@@ -243,6 +244,7 @@
           </div>
         </section>
 
+        <!-- 선물 추천 리스트 스텝 -->
         <section
           class="relative flex hidden h-full flex-col"
           data-step="presents"
@@ -292,7 +294,180 @@
 
             <!-- tab contents -->
             <ul id="tab-contents" class="mt-14">
-              <li role="tabpanel" data-tab-id="tab1" tabindex="0" class=""></li>
+              <li
+                role="tabpanel"
+                data-tab-id="tab1"
+                tabindex="0"
+                class="divide-y-8"
+              >
+                <!-- 주유권 -->
+                <div class="px-20 pb-50 pt-44">
+                  <div class="mb-26 flex justify-between">
+                    <h3
+                      class="relative w-fit px-4 text-b1-semibold text-black after:absolute after:inset-x-0 after:bottom-7 after:-z-10 after:h-6 after:bg-violet-75 after:content-['']"
+                    >
+                      #주유권
+                    </h3>
+                    <div class="flex gap-6">
+                      <label>
+                        <input type="checkbox" class="peer" hidden />
+                        <div
+                          class="rounded-full bg-violet-75 px-16 py-6 text-c1-regular text-gray-900"
+                        >
+                          전기차
+                        </div>
+                      </label>
+                      <button
+                        type="button"
+                        class="rounded-full bg-gray-200 px-16 py-6 text-c1-regular text-gray-900"
+                      >
+                        더보기
+                      </button>
+                    </div>
+                  </div>
+                  <ul
+                    class="mt-26 flex gap-10 overflow-x-auto"
+                    id="fuel-gift-card"
+                  >
+                    <!-- 데이터 넣어주기 -->
+                    <li class="w-152">
+                      <p class="text-c1-regular text-gray-500">
+                        <strong class="text-c1-semibold text-violet-300">
+                          123
+                        </strong>
+                        명이 선택했어요
+                      </p>
+                      <div
+                        class="my-6 flex h-152 w-152 items-center justify-center rounded-4 border border-gray-200 bg-gray-100"
+                      >
+                        <img
+                          src="../assets/fuelPriceCircle.svg"
+                          width="70"
+                          height="60"
+                        />
+                      </div>
+                      <span class="pb-4 text-c2 text-gray-500">스타벅스</span>
+                      <p class="line-clamp-2 text-b3-regular text-black">
+                        신세계상품권 모바일교환권 50,000원권 이마트 신세계상품권
+                        모바일교환권 50,000원권 이마트
+                      </p>
+                      <p class="py-10 text-b2-semibold text-black">50000원</p>
+                      <div
+                        class="flex justify-end border-t border-gray-200 py-6"
+                      >
+                        <img src="../assets/heart.svg" class="inline pr-6" />
+                        123
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <!-- 브랜드 금액권 -->
+                <div class="px-20 pb-50 pt-44">
+                  <div class="mb-26 flex justify-between">
+                    <h3
+                      class="relative w-fit px-4 text-b1-semibold text-black after:absolute after:inset-x-0 after:bottom-7 after:-z-10 after:h-6 after:bg-violet-75 after:content-['']"
+                    >
+                      #주유권
+                    </h3>
+                    <div class="flex gap-6">
+                      <button
+                        type="button"
+                        class="rounded-full bg-gray-200 px-16 py-6 text-c1-regular text-gray-900"
+                      >
+                        더보기
+                      </button>
+                    </div>
+                  </div>
+                  <ul
+                    class="mt-26 flex gap-10 overflow-x-auto"
+                    id="fuel-gift-card"
+                  >
+                    <!-- 데이터 넣어주기 -->
+                    <li class="w-152">
+                      <p class="text-c1-regular text-gray-500">
+                        <strong class="text-c1-semibold text-violet-300">
+                          123
+                        </strong>
+                        명이 선택했어요
+                      </p>
+                      <div
+                        class="my-6 flex h-152 w-152 items-center justify-center rounded-4 border border-gray-200 bg-gray-100"
+                      >
+                        <img
+                          src="../assets/fuelPriceCircle.svg"
+                          width="70"
+                          height="60"
+                        />
+                      </div>
+                      <span class="pb-4 text-c2 text-gray-500">스타벅스</span>
+                      <p class="line-clamp-2 text-b3-regular text-black">
+                        신세계상품권 모바일교환권 50,000원권 이마트 신세계상품권
+                        모바일교환권 50,000원권 이마트
+                      </p>
+                      <p class="py-10 text-b2-semibold text-black">50000원</p>
+                      <div
+                        class="flex justify-end border-t border-gray-200 py-6"
+                      >
+                        <img src="../assets/heart.svg" class="inline pr-6" />
+                        123
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <!-- 백화점 상품권 -->
+                <div class="px-20 pb-50 pt-44">
+                  <div class="mb-26 flex justify-between">
+                    <h3
+                      class="relative w-fit px-4 text-b1-semibold text-black after:absolute after:inset-x-0 after:bottom-7 after:-z-10 after:h-6 after:bg-violet-75 after:content-['']"
+                    >
+                      #주유권
+                    </h3>
+                    <div class="flex gap-6">
+                      <button
+                        type="button"
+                        class="rounded-full bg-gray-200 px-16 py-6 text-c1-regular text-gray-900"
+                      >
+                        더보기
+                      </button>
+                    </div>
+                  </div>
+                  <ul
+                    class="mt-26 flex gap-10 overflow-x-auto"
+                    id="fuel-gift-card"
+                  >
+                    <!-- 데이터 넣어주기 -->
+                    <li class="w-152">
+                      <p class="text-c1-regular text-gray-500">
+                        <strong class="text-c1-semibold text-violet-300">
+                          123
+                        </strong>
+                        명이 선택했어요
+                      </p>
+                      <div
+                        class="my-6 flex h-152 w-152 items-center justify-center rounded-4 border border-gray-200 bg-gray-100"
+                      >
+                        <img
+                          src="../assets/fuelPriceCircle.svg"
+                          width="70"
+                          height="60"
+                        />
+                      </div>
+                      <span class="pb-4 text-c2 text-gray-500">스타벅스</span>
+                      <p class="line-clamp-2 text-b3-regular text-black">
+                        신세계상품권 모바일교환권 50,000원권 이마트 신세계상품권
+                        모바일교환권 50,000원권 이마트
+                      </p>
+                      <p class="py-10 text-b2-semibold text-black">50000원</p>
+                      <div
+                        class="flex justify-end border-t border-gray-200 py-6"
+                      >
+                        <img src="../assets/heart.svg" class="inline pr-6" />
+                        123
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </li>
               <li
                 role="tabpanel"
                 data-tab-id="tab2"
@@ -304,9 +479,17 @@
           </div>
         </section>
 
+        <!-- 감사 문구 모음 스텝 -->
         <section class="hidden" data-step="thanks-phrases">
           thanks-phrases
         </section>
+
+        <ul id="step-slider-container">
+          <li class="flex-1 rounded-full bg-gray-200"></li>
+          <li class="flex-1 rounded-full bg-gray-200"></li>
+          <li class="flex-1 rounded-full bg-gray-200"></li>
+          <li class="step-slider"></li>
+        </ul>
       </main>
     </div>
     <script src="./index.ts" type="module"></script>
