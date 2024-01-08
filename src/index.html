@@ -60,49 +60,92 @@
           </div>
         </section>
 
-        <section class="hidden" data-step="passenger-count">
-          <h1>함께 동승한 인원을 알려주세요.</h1>
-          <p>운전자를 표함해서 알려주세요!</p>
+        <!-- 동승자 수 입력 스텝 -->
+        <section
+          class="relative flex hidden h-full flex-col px-20"
+          data-step="passenger-count"
+        >
+          <div class="flex-1">
+            <h1 class="mt-60 text-h3 text-gray-900">
+              함께 동승한 인원을 알려주세요.
+            </h1>
+            <p class="mt-10 text-b3-regular text-gray-500">
+              운전자를 표함해서 알려주세요!
+            </p>
 
-          <div id="passenger-count-form">
-            <div>
-              <label>
+            <div id="passenger-count-form" class="mt-82">
+              <div class="relative flex gap-8">
+                <label>
+                  <input
+                    type="radio"
+                    name="passenger-count"
+                    class="peer"
+                    value="2"
+                    hidden
+                  />
+                  <div
+                    class="rounded-8 border border-gray-200 px-35 py-15 text-center text-b1-semibold text-gray-500 peer-checked:border-violet-300 peer-checked:text-violet-300"
+                  >
+                    2명
+                  </div>
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="passenger-count"
+                    class="peer"
+                    value="3"
+                    hidden
+                  />
+                  <div
+                    class="rounded-8 border border-gray-200 px-35 py-15 text-center text-b1-semibold text-gray-500 peer-checked:border-violet-300 peer-checked:text-violet-300"
+                  >
+                    3명
+                  </div>
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    class="peer"
+                    name="passenger-count"
+                    value="4"
+                    hidden
+                  />
+                  <div
+                    class="rounded-8 border border-gray-200 px-35 py-15 text-center text-b1-semibold text-gray-500 peer-checked:border-violet-300 peer-checked:text-violet-300"
+                  >
+                    4명
+                  </div>
+                </label>
+              </div>
+              <div class="relative mt-22">
                 <input
-                  type="radio"
-                  name="passenger-count"
-                  class="peer"
-                  value="2"
-                  hidden
+                  type="number"
+                  placeholder="5명 이상인 경우 입력해주세요."
+                  class="w-full rounded-5 border border-gray-200 bg-white py-10 pl-28 pr-42 text-right align-middle text-h1 text-violet-300 placeholder:text-left placeholder:text-b1-semibold placeholder:text-gray-400"
+                  id="passenger-count-input"
                 />
-                <span class="peer-checked:bg-violet-75">2명</span>
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="passenger-count"
-                  class="peer"
-                  value="3"
-                  hidden
-                />
-                <span class="peer-checked:bg-violet-75">3명</span>
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  class="peer"
-                  name="passenger-count"
-                  value="4"
-                  hidden
-                />
-                <span class="peer-checked:bg-violet-75">4명</span>
-              </label>
+                <span
+                  class="absolute right-18 translate-y-1/2 text-h3 text-gray-900"
+                  >명</span
+                >
+              </div>
             </div>
-            <input type="number" id="passenger-count-input" />
           </div>
 
-          <div id="passenger-count-step-button">
-            <button type="button" class="prev-button">뒤로</button>
-            <button type="button" class="next-button">다음으로</button>
+          <div id="passenger-count-step-button" class="flex gap-10">
+            <button
+              type="button"
+              class="prev-button flex-[30] rounded-8 bg-gray-200 py-18 text-center text-b1-semibold text-gray-700"
+            >
+              이전으로
+            </button>
+            <button
+              type="button"
+              class="next-button flex-[77] rounded-8 bg-violet-300 py-18 text-center text-b1-semibold text-white"
+            >
+              다음으로
+            </button>
           </div>
         </section>
 
