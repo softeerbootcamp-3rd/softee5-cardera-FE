@@ -12,6 +12,8 @@
   "devDependencies": {
     "parcel": "^2.11.0",
     "postcss": "^8.4.33",
+    "prettier": "^3.1.1",
+    "prettier-plugin-tailwindcss": "^0.5.11",
     "tailwindcss": "^3.4.0"
   }
 }
