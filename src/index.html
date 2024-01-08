@@ -192,25 +192,52 @@
           </div>
         </section>
 
-        <section class="hidden" data-step="result">
-          <h1>카풀 비용 계산을<br />완료했습니다!</h1>
-          <p>카풀 해주신 고마운 분께 수고비를 추가하시겠어요?</p>
-          <div>
-            <div id="tip-options"></div>
-            <p id="tip-description">
-              가장 많은 유저들이 1.5배의 팁을 선택해요!
+        <!-- 결과 스텝 -->
+        <section
+          class="relative flex hidden h-full flex-col px-20"
+          data-step="result"
+        >
+          <div class="flex-1">
+            <h1 class="mt-24 text-h3 text-gray-900">
+              카풀 비용 계산을<br />완료했습니다!
+            </h1>
+            <p class="mt-10 text-b3-regular text-gray-500">
+              카풀 해주신 고마운 분께 수고비를 추가하시겠어요?
             </p>
+
+            <div class="mt-14 flex flex-col gap-8">
+              <div id="tip-options" class="flex h-36 flex-wrap gap-5"></div>
+              <p id="tip-description" class="text-c1-semibold text-gray-900">
+                가장 많은 유저들이 1.5배의 팁을 선택해요!
+              </p>
+            </div>
+
+            <div class="relative mt-44 flex items-center justify-center">
+              <img src="../assets/fuelPriceCircle.svg" class="mx-auto" />
+              <div
+                id="fuel-price"
+                class="absolute text-[3rem] text-white"
+              ></div>
+            </div>
           </div>
 
-          <div id="fuel-price"></div>
-
-          <div id="result-step-button">
-            <button type="button" class="thanks-button">괜찮아요</button>
-            <button type="button" class="presents-button relative">
-              <span id="tool-tip" class="absolute hidden"
+          <div id="result-step-button" class="flex gap-10">
+            <button
+              type="button"
+              class="thanks-button flex-[30] rounded-8 bg-gray-200 py-18 text-center text-b1-semibold text-gray-700"
+            >
+              괜찮아요
+            </button>
+            <button
+              type="button"
+              class="presents-button relative flex-[77] rounded-8 bg-violet-300 py-18 text-center text-b1-semibold text-white"
+            >
+              선물 추천받기
+              <span
+                id="tool-tip"
+                class="tooltiptext tooltip-top pointer-events-none animate-bounce"
                 >비용을 대체할만한 선물을 추천해드려요</span
               >
-              선물 추천받기
             </button>
           </div>
         </section>

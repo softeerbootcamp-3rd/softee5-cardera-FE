@@ -47,7 +47,7 @@ step.subscribe('result', async () => {
             value="${option.multiple}"
             hidden
           />
-          <span class="bg-gray-200 peer-checked:bg-black peer-checked:text-white">x ${option.multiple}배</span>
+          <div class="text-b3-semibold rounded-4 bg-gray-200 text-gray-900 px-12 py-8 peer-checked:bg-gray-900 peer-checked:text-white">x ${option.multiple}배</div>
         </label>
       `
     })
