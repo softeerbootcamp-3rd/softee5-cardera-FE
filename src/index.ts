@@ -31,18 +31,22 @@ const step = new Step('intro', [
 ] as const)
 
 function setHeader() {
+  // see https://parceljs.org/languages/svg/#svg-in-javascript
+  const back = new URL('../assets/back.svg', import.meta.url)
+  const menu = new URL('../assets/menu.svg', import.meta.url)
   header.innerHTML = `
     <button type="button" class="prev-button">
-      <img src="../assets/back.svg" />
-    </button>
+      <img src=${back} />
+      </button>
     <button type="button">
-      <img src="../assets/menu.svg" />
+      <img src=${menu} />
     </button>
   `
   header.querySelector('.prev-button')?.addEventListener('click', () => {
     step.prevStep()
   })
 }
+
 step.subscribe('intro', () => {
   header.innerHTML = ''
 })
