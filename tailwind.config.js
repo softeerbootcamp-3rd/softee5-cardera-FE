@@ -79,7 +79,7 @@ module.exports = {
           '1.6rem',
           {
             lineHeight: '2.0rem',
-            letterSpacing: '0.8%',
+            letterSpacing: '0.008em',
             fontWeight: '600',
           },
         ],
@@ -87,7 +87,7 @@ module.exports = {
           '1.6rem',
           {
             lineHeight: '2.0rem',
-            letterSpacing: '0.8%',
+            letterSpacing: '0.008em',
             fontWeight: '400',
           },
         ],
@@ -95,7 +95,7 @@ module.exports = {
           '1.5rem',
           {
             lineHeight: '2.0rem',
-            letterSpacing: '0.8%',
+            letterSpacing: '0.008em',
             fontWeight: '600',
           },
         ],
@@ -103,7 +103,7 @@ module.exports = {
           '1.5rem',
           {
             lineHeight: '2.0rem',
-            letterSpacing: '0.8%',
+            letterSpacing: '0.008em',
             fontWeight: '400',
           },
         ],
@@ -113,7 +113,7 @@ module.exports = {
           '1.4rem',
           {
             lineHeight: '1.8rem',
-            letterSpacing: '0.8%',
+            letterSpacing: '0.008em',
             fontWeight: '600',
           },
         ],
@@ -121,7 +121,7 @@ module.exports = {
           '1.4rem',
           {
             lineHeight: '1.8rem',
-            letterSpacing: '0.8%',
+            letterSpacing: '0.008em',
             fontWeight: '400',
           },
         ],
@@ -129,7 +129,7 @@ module.exports = {
           '1.2rem',
           {
             lineHeight: '1.6rem',
-            letterSpacing: '0.8%',
+            letterSpacing: '0.008em',
             fontWeight: '400',
           },
         ],
@@ -137,7 +137,7 @@ module.exports = {
           '1.1rem',
           {
             lineHeight: '1.4rem',
-            letterSpacing: '0.8%',
+            letterSpacing: '0.008em',
             fontWeight: '400',
           },
         ],
