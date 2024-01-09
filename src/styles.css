@@ -133,4 +133,21 @@
     transition: 0.25s ease-out;
     z-index: 1;
   }
+
+  select {
+    @apply rounded-4 bg-gray-100 py-8 pl-12 pr-28 text-b3-semibold text-gray-900;
+    /* reset */
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+  select.custom-select {
+    background-image: url('../assets/select-arrow.svg');
+    background-position: right 1.2rem bottom 1.2rem;
+    background-repeat: no-repeat;
+  }
 }

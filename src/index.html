@@ -9,17 +9,11 @@
   </head>
   <body>
     <div class="app">
-      <header
-        id="header"
-        class="sticky top-0 z-[1500] flex h-48 w-full justify-between bg-white px-3"
-      ></header>
+      <header id="header" class="sticky top-0 z-[1500] flex h-48 w-full justify-between bg-white px-3"></header>
 
       <main class="layout">
         <!-- 온보딩 스텝 -->
-        <section
-          class="relative flex hidden h-[calc(100dvh-48px)] flex-col px-20"
-          data-step="intro"
-        >
+        <section class="relative flex hidden h-[calc(100dvh-48px)] flex-col px-20" data-step="intro">
           <div class="flex w-240 grow-[3] items-start">
             <img src="../assets/onboard-top.svg" alt="온보딩" />
           </div>
@@ -55,14 +49,9 @@
         </section>
 
         <!-- 출발지, 도착지 입력 스텝 -->
-        <section
-          class="relative flex hidden h-[calc(100dvh-48px)] flex-col px-20"
-          data-step="juso"
-        >
+        <section class="relative flex hidden h-[calc(100dvh-48px)] flex-col px-20" data-step="juso">
           <div class="flex-1 pt-60">
-            <h1 class="text-h3 text-gray-900">
-              출발지와 도착지 정보를 입력해주세요.
-            </h1>
+            <h1 class="text-h3 text-gray-900">출발지와 도착지 정보를 입력해주세요.</h1>
             <ul id="address" class="mt-58 flex flex-col gap-8">
               <li>
                 <input
@@ -94,28 +83,15 @@
         </section>
 
         <!-- 동승자 수 입력 스텝 -->
-        <section
-          class="relative flex hidden h-[calc(100dvh-48px)] flex-col px-20"
-          data-step="passenger-count"
-        >
+        <section class="relative flex hidden h-[calc(100dvh-48px)] flex-col px-20" data-step="passenger-count">
           <div class="flex-1">
-            <h1 class="mt-60 text-h3 text-gray-900">
-              함께 동승한 인원을 알려주세요.
-            </h1>
-            <p class="mt-10 text-b3-regular text-gray-500">
-              운전자를 표함해서 알려주세요!
-            </p>
+            <h1 class="mt-60 text-h3 text-gray-900">함께 동승한 인원을 알려주세요.</h1>
+            <p class="mt-10 text-b3-regular text-gray-500">운전자를 표함해서 알려주세요!</p>
 
             <div id="passenger-count-form" class="mt-82">
               <div class="relative flex gap-8">
                 <label>
-                  <input
-                    type="radio"
-                    name="passenger-count"
-                    class="peer"
-                    value="2"
-                    hidden
-                  />
+                  <input type="radio" name="passenger-count" class="peer" value="2" hidden />
                   <div
                     class="rounded-8 border border-gray-200 px-35 py-15 text-center text-b1-semibold text-gray-500 peer-checked:border-violet-300 peer-checked:text-violet-300"
                   >
@@ -123,13 +99,7 @@
                   </div>
                 </label>
                 <label>
-                  <input
-                    type="radio"
-                    name="passenger-count"
-                    class="peer"
-                    value="3"
-                    hidden
-                  />
+                  <input type="radio" name="passenger-count" class="peer" value="3" hidden />
                   <div
                     class="rounded-8 border border-gray-200 px-35 py-15 text-center text-b1-semibold text-gray-500 peer-checked:border-violet-300 peer-checked:text-violet-300"
                   >
@@ -137,13 +107,7 @@
                   </div>
                 </label>
                 <label>
-                  <input
-                    type="radio"
-                    class="peer"
-                    name="passenger-count"
-                    value="4"
-                    hidden
-                  />
+                  <input type="radio" class="peer" name="passenger-count" value="4" hidden />
                   <div
                     class="rounded-8 border border-gray-200 px-35 py-15 text-center text-b1-semibold text-gray-500 peer-checked:border-violet-300 peer-checked:text-violet-300"
                   >
@@ -158,10 +122,7 @@
                   class="w-full rounded-5 border border-gray-200 bg-white py-10 pl-28 pr-42 text-right align-middle text-h1 text-violet-300 placeholder:text-left placeholder:text-b1-semibold placeholder:text-gray-400"
                   id="passenger-count-input"
                 />
-                <span
-                  class="absolute right-18 translate-y-1/2 text-h3 text-gray-900"
-                  >명</span
-                >
+                <span class="absolute right-18 translate-y-1/2 text-h3 text-gray-900">명</span>
               </div>
             </div>
           </div>
@@ -183,17 +144,10 @@
         </section>
 
         <!-- 카풀 횟수 입력 스텝 -->
-        <section
-          class="relative flex hidden h-[calc(100dvh-48px)] flex-col px-20"
-          data-step="carpool-count"
-        >
+        <section class="relative flex hidden h-[calc(100dvh-48px)] flex-col px-20" data-step="carpool-count">
           <div class="flex-1">
-            <h1 class="mt-60 text-h3 text-gray-900">
-              지금까지 카풀한 횟수를<br />알려주세요.
-            </h1>
-            <p class="mt-10 text-b3-regular text-gray-500">
-              편도를 1회로 계산할게요!
-            </p>
+            <h1 class="mt-60 text-h3 text-gray-900">지금까지 카풀한 횟수를<br />알려주세요.</h1>
+            <p class="mt-10 text-b3-regular text-gray-500">편도를 1회로 계산할게요!</p>
 
             <div class="relative mt-60" for="carpool-count">
               <input
@@ -202,10 +156,7 @@
                 class="w-full rounded-5 border border-gray-200 bg-white py-10 pl-28 pr-42 text-right align-middle text-h1 text-violet-300 placeholder:text-left placeholder:text-b1-semibold placeholder:text-gray-400"
                 id="carpool-count"
               />
-              <span
-                class="absolute right-18 translate-y-1/2 text-h3 text-gray-900"
-                >회</span
-              >
+              <span class="absolute right-18 translate-y-1/2 text-h3 text-gray-900">회</span>
             </div>
           </div>
 
@@ -226,17 +177,10 @@
         </section>
 
         <!-- 결과 스텝 -->
-        <section
-          class="relative flex hidden h-[calc(100dvh-48px)] flex-col px-20"
-          data-step="result"
-        >
+        <section class="relative flex hidden h-[calc(100dvh-48px)] flex-col px-20" data-step="result">
           <div class="flex-1">
-            <h1 class="mt-24 text-h3 text-gray-900">
-              카풀 비용 계산을<br />완료했습니다!
-            </h1>
-            <p class="mt-10 text-b3-regular text-gray-500">
-              카풀 해주신 고마운 분께 수고비를 추가하시겠어요?
-            </p>
+            <h1 class="mt-24 text-h3 text-gray-900">카풀 비용 계산을<br />완료했습니다!</h1>
+            <p class="mt-10 text-b3-regular text-gray-500">카풀 해주신 고마운 분께 수고비를 추가하시겠어요?</p>
 
             <div class="mt-14 flex flex-col gap-8">
               <div id="tip-options" class="flex h-36 flex-wrap gap-5"></div>
@@ -247,10 +191,7 @@
 
             <div class="relative mt-44 flex items-center justify-center">
               <img src="../assets/fuelPriceCircle.svg" class="mx-auto" />
-              <div
-                id="fuel-price"
-                class="absolute text-[3rem] text-white"
-              ></div>
+              <div id="fuel-price" class="absolute text-[3rem] text-white"></div>
             </div>
           </div>
 
@@ -266,9 +207,7 @@
               class="presents-button relative flex-[77] rounded-8 bg-violet-300 py-18 text-center text-b1-semibold text-white"
             >
               선물 추천받기
-              <span
-                id="tool-tip"
-                class="tooltiptext tooltip-top pointer-events-none animate-bounce"
+              <span id="tool-tip" class="tooltiptext tooltip-top pointer-events-none animate-bounce"
                 >비용을 대체할만한 선물을 추천해드려요</span
               >
             </button>
@@ -276,38 +215,21 @@
         </section>
 
         <!-- 선물 추천 리스트 스텝 -->
-        <section
-          class="relative flex hidden h-full flex-col"
-          data-step="presents"
-        >
+        <section class="relative flex hidden h-full flex-col" data-step="presents">
           <div id="tab-container" class="w-full">
             <!-- tab heading -->
             <div id="tab-headings" class="mt-24">
-              <h1
-                data-tab-id="tab1"
-                class="tab-heading px-20 text-h3 text-gray-900"
-              >
+              <h1 data-tab-id="tab1" class="tab-heading px-20 text-h3 text-gray-900">
                 카풀 비용에 맞는 현금성<br />상품권을 추천해드릴게요!
               </h1>
-              <h1
-                data-tab-id="tab2"
-                class="tab-heading px-20 text-h3 text-gray-900"
-                hidden
-              >
+              <h1 data-tab-id="tab2" class="tab-heading px-20 text-h3 text-gray-900" hidden>
                 돈은 정 없다구요?<br />마음을 담은 선물은 어떠세요?
               </h1>
             </div>
 
             <!-- tab button -->
             <nav role="tablist" id="tab-buttons" class="mt-48" tabindex="0">
-              <button
-                type="button"
-                role="tab"
-                class="tab-button"
-                tabindex="-1"
-                data-tab-id="tab1"
-                data-state="active"
-              >
+              <button type="button" role="tab" class="tab-button" tabindex="-1" data-tab-id="tab1" data-state="active">
                 현금성 상품권
               </button>
               <button
@@ -324,13 +246,8 @@
             </nav>
 
             <!-- tab contents -->
-            <ul id="tab-contents" class="mt-14">
-              <li
-                role="tabpanel"
-                data-tab-id="tab1"
-                tabindex="0"
-                class="divide-y-8"
-              >
+            <ul id="tab-contents">
+              <li role="tabpanel" data-tab-id="tab1" tabindex="0" class="mt-14 divide-y-8">
                 <!-- 주유권 -->
                 <div class="px-20 pb-50 pt-44">
                   <div class="mb-26 flex justify-between">
@@ -342,54 +259,15 @@
                     <div class="flex gap-6">
                       <label>
                         <input type="checkbox" class="peer" hidden />
-                        <div
-                          class="rounded-full bg-violet-75 px-16 py-6 text-c1-regular text-gray-900"
-                        >
-                          전기차
-                        </div>
+                        <div class="rounded-full bg-violet-75 px-16 py-6 text-c1-regular text-gray-900">전기차</div>
                       </label>
-                      <button
-                        type="button"
-                        class="rounded-full bg-gray-200 px-16 py-6 text-c1-regular text-gray-900"
-                      >
+                      <button type="button" class="rounded-full bg-gray-200 px-16 py-6 text-c1-regular text-gray-900">
                         더보기
                       </button>
                     </div>
                   </div>
-                  <ul
-                    class="mt-26 flex gap-10 overflow-x-auto"
-                    id="fuel-gift-card"
-                  >
+                  <ul class="mt-26 flex gap-10 overflow-x-auto" id="fuel-gifts">
                     <!-- 데이터 넣어주기 -->
-                    <li class="w-152">
-                      <p class="text-c1-regular text-gray-500">
-                        <strong class="text-c1-semibold text-violet-300">
-                          123
-                        </strong>
-                        명이 선택했어요
-                      </p>
-                      <div
-                        class="my-6 flex h-152 w-152 items-center justify-center rounded-4 border border-gray-200 bg-gray-100"
-                      >
-                        <img
-                          src="../assets/fuelPriceCircle.svg"
-                          width="70"
-                          height="60"
-                        />
-                      </div>
-                      <span class="pb-4 text-c2 text-gray-500">스타벅스</span>
-                      <p class="line-clamp-2 text-b3-regular text-black">
-                        신세계상품권 모바일교환권 50,000원권 이마트 신세계상품권
-                        모바일교환권 50,000원권 이마트
-                      </p>
-                      <p class="py-10 text-b2-semibold text-black">50000원</p>
-                      <div
-                        class="flex justify-end border-t border-gray-200 py-6"
-                      >
-                        <img src="../assets/heart.svg" class="inline pr-6" />
-                        123
-                      </div>
-                    </li>
                   </ul>
                 </div>
                 <!-- 브랜드 금액권 -->
@@ -398,51 +276,16 @@
                     <h3
                       class="relative w-fit px-4 text-b1-semibold text-black after:absolute after:inset-x-0 after:bottom-7 after:-z-10 after:h-6 after:bg-violet-75 after:content-['']"
                     >
-                      #주유권
+                      #브랜드 금액권
                     </h3>
                     <div class="flex gap-6">
-                      <button
-                        type="button"
-                        class="rounded-full bg-gray-200 px-16 py-6 text-c1-regular text-gray-900"
-                      >
+                      <button type="button" class="rounded-full bg-gray-200 px-16 py-6 text-c1-regular text-gray-900">
                         더보기
                       </button>
                     </div>
                   </div>
-                  <ul
-                    class="mt-26 flex gap-10 overflow-x-auto"
-                    id="fuel-gift-card"
-                  >
+                  <ul class="mt-26 flex gap-10 overflow-x-auto" id="brand-gifts">
                     <!-- 데이터 넣어주기 -->
-                    <li class="w-152">
-                      <p class="text-c1-regular text-gray-500">
-                        <strong class="text-c1-semibold text-violet-300">
-                          123
-                        </strong>
-                        명이 선택했어요
-                      </p>
-                      <div
-                        class="my-6 flex h-152 w-152 items-center justify-center rounded-4 border border-gray-200 bg-gray-100"
-                      >
-                        <img
-                          src="../assets/fuelPriceCircle.svg"
-                          width="70"
-                          height="60"
-                        />
-                      </div>
-                      <span class="pb-4 text-c2 text-gray-500">스타벅스</span>
-                      <p class="line-clamp-2 text-b3-regular text-black">
-                        신세계상품권 모바일교환권 50,000원권 이마트 신세계상품권
-                        모바일교환권 50,000원권 이마트
-                      </p>
-                      <p class="py-10 text-b2-semibold text-black">50000원</p>
-                      <div
-                        class="flex justify-end border-t border-gray-200 py-6"
-                      >
-                        <img src="../assets/heart.svg" class="inline pr-6" />
-                        123
-                      </div>
-                    </li>
                   </ul>
                 </div>
                 <!-- 백화점 상품권 -->
@@ -451,69 +294,96 @@
                     <h3
                       class="relative w-fit px-4 text-b1-semibold text-black after:absolute after:inset-x-0 after:bottom-7 after:-z-10 after:h-6 after:bg-violet-75 after:content-['']"
                     >
-                      #주유권
+                      #백화점 상품권
                     </h3>
                     <div class="flex gap-6">
-                      <button
-                        type="button"
-                        class="rounded-full bg-gray-200 px-16 py-6 text-c1-regular text-gray-900"
-                      >
+                      <button type="button" class="rounded-full bg-gray-200 px-16 py-6 text-c1-regular text-gray-900">
                         더보기
                       </button>
                     </div>
                   </div>
-                  <ul
-                    class="mt-26 flex gap-10 overflow-x-auto"
-                    id="fuel-gift-card"
-                  >
+                  <ul class="mt-26 flex gap-10 overflow-x-auto" id="department-store-gifts">
                     <!-- 데이터 넣어주기 -->
-                    <li class="w-152">
-                      <p class="text-c1-regular text-gray-500">
-                        <strong class="text-c1-semibold text-violet-300">
-                          123
-                        </strong>
-                        명이 선택했어요
-                      </p>
-                      <div
-                        class="my-6 flex h-152 w-152 items-center justify-center rounded-4 border border-gray-200 bg-gray-100"
-                      >
-                        <img
-                          src="../assets/fuelPriceCircle.svg"
-                          width="70"
-                          height="60"
-                        />
-                      </div>
-                      <span class="pb-4 text-c2 text-gray-500">스타벅스</span>
-                      <p class="line-clamp-2 text-b3-regular text-black">
-                        신세계상품권 모바일교환권 50,000원권 이마트 신세계상품권
-                        모바일교환권 50,000원권 이마트
-                      </p>
-                      <p class="py-10 text-b2-semibold text-black">50000원</p>
-                      <div
-                        class="flex justify-end border-t border-gray-200 py-6"
-                      >
-                        <img src="../assets/heart.svg" class="inline pr-6" />
-                        123
-                      </div>
-                    </li>
                   </ul>
                 </div>
               </li>
-              <li
-                role="tabpanel"
-                data-tab-id="tab2"
-                tabindex="0"
-                class="h-[200vh]"
-                hidden
-              ></li>
+              <li role="tabpanel" data-tab-id="tab2" tabindex="0" hidden>
+                <div class="flex gap-5 px-20 pb-14 pt-23">
+                  <select name="gender" class="custom-select">
+                    <option value="">성별</option>
+                  </select>
+                  <select name="age" class="custom-select">
+                    <option value="">나이</option>
+                  </select>
+                  <select name="relation" class="custom-select">
+                    <option value="">관계</option>
+                  </select>
+                  <select name="price" class="custom-select">
+                    <option value="">가격</option>
+                  </select>
+                </div>
+
+                <!-- 많이 선물한 선물 -->
+                <div class="px-20 pb-50 pt-44">
+                  <div class="mb-26 flex justify-between">
+                    <h3
+                      class="relative w-fit px-4 text-b1-semibold text-black after:absolute after:inset-x-0 after:bottom-7 after:-z-10 after:h-6 after:bg-violet-75 after:content-['']"
+                    >
+                      #많이 선물한
+                    </h3>
+                    <div class="flex gap-6">
+                      <button type="button" class="rounded-full bg-gray-200 px-16 py-6 text-c1-regular text-gray-900">
+                        더보기
+                      </button>
+                    </div>
+                  </div>
+                  <ul class="mt-26 flex gap-10 overflow-x-auto" id="best-gifts">
+                    <!-- 데이터 넣어주기 -->
+                  </ul>
+                </div>
+                <!-- 럭셔리한 선물 -->
+                <div class="px-20 pb-50 pt-44">
+                  <div class="mb-26 flex justify-between">
+                    <h3
+                      class="relative w-fit px-4 text-b1-semibold text-black after:absolute after:inset-x-0 after:bottom-7 after:-z-10 after:h-6 after:bg-violet-75 after:content-['']"
+                    >
+                      #럭셔리한
+                    </h3>
+                    <div class="flex gap-6">
+                      <button type="button" class="rounded-full bg-gray-200 px-16 py-6 text-c1-regular text-gray-900">
+                        더보기
+                      </button>
+                    </div>
+                  </div>
+                  <ul class="mt-26 flex gap-10 overflow-x-auto" id="luxury-gifts">
+                    <!-- 데이터 넣어주기 -->
+                  </ul>
+                </div>
+                <!-- 건강한 선물 -->
+                <div class="px-20 pb-50 pt-44">
+                  <div class="mb-26 flex justify-between">
+                    <h3
+                      class="relative w-fit px-4 text-b1-semibold text-black after:absolute after:inset-x-0 after:bottom-7 after:-z-10 after:h-6 after:bg-violet-75 after:content-['']"
+                    >
+                      #건강한
+                    </h3>
+                    <div class="flex gap-6">
+                      <button type="button" class="rounded-full bg-gray-200 px-16 py-6 text-c1-regular text-gray-900">
+                        더보기
+                      </button>
+                    </div>
+                  </div>
+                  <ul class="mt-26 flex gap-10 overflow-x-auto" id="healthy-gifts">
+                    <!-- 데이터 넣어주기 -->
+                  </ul>
+                </div>
+              </li>
             </ul>
           </div>
         </section>
 
         <!-- 감사 문구 모음 스텝 -->
-        <section class="hidden" data-step="thanks-phrases">
-          thanks-phrases
-        </section>
+        <section class="hidden" data-step="thanks-phrases">thanks-phrases</section>
 
         <ul id="step-slider-container">
           <li class="flex-1 rounded-full bg-gray-200"></li>

@@ -1,4 +1,5 @@
 import { dummyData, wait } from './api'
+import { renderGiftItems } from './presents'
 import { Step } from './step'
 
 const header = document.getElementById('header') as HTMLHeadElement
@@ -92,6 +93,9 @@ step.subscribe('result', async () => {
       fuelPriceElement.innerHTML = `${(Number(tip) * fuelPrice).toLocaleString()} 원`
     })
   })
+})
+step.subscribe('presents', () => {
+  renderGiftItems()
 })
 
 function getFormData() {
@@ -196,7 +200,7 @@ function registerResultStep() {
 }
 
 function main() {
-  step.setStep('juso')
+  step.setStep('presents')
   registerIntroStep()
   registerJusoStep()
   registerPassengerCountStep()
