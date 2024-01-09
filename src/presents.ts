@@ -348,9 +348,11 @@ function giftItemTemplate(gift: Gift) {
               class="flex justify-end border-t border-gray-200 py-6"
             >
               <button type="button" class="inline pr-6">
-                <img src=${heart} alt='좋아요 버튼 아이콘'  />
-                </button>
+                <img src=${heart} alt='좋아요 버튼 아이콘' />
+              </button>
+              <span class="text-gray-500 text-c1-regular">
                 ${gift.likeCount}
+              </span>
             </div>
           </li>`
 }

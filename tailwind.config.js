@@ -133,7 +133,7 @@ module.exports = {
             fontWeight: '400',
           },
         ],
-        c2: [
+        c3: [
           '1.1rem',
           {
             lineHeight: '1.4rem',
