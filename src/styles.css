@@ -27,6 +27,11 @@
     position: relative;
     min-height: calc(100dvh - 48px);
   }
+  button {
+    /* https://developer.mozilla.org/en-US/docs/Web/CSS/touch-action#manipulation */
+    /* 버튼을 두번 탭할 때 줌인 되는 것을 방지해줍니다. */
+    touch-action: manipulation;
+  }
 
   /* Tooltip Styles */
   .tooltiptext {
