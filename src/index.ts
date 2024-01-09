@@ -4,8 +4,6 @@ import { Step } from './step'
 
 const header = document.getElementById('header') as HTMLHeadElement
 
-const addressForm = document.getElementById('address') as HTMLUListElement
-
 const passengerCountForm = document.getElementById('passenger-count-form') as HTMLDivElement
 const startRoadFullAddressInput = document.getElementById('startRoadFullAddr') as HTMLInputElement
 const destRoadFullAddressInput = document.getElementById('destRoadFullAddr') as HTMLInputElement
@@ -146,15 +144,15 @@ step.subscribe('presents', () => {
 
 function getFormData() {
   try {
-    const start = startRoadFullAddressInput.value
-    const goal = destRoadFullAddressInput.value
+    const start = startRoadFullAddressInput.dataset.value
+    const goal = destRoadFullAddressInput.dataset.value
     const passengerNumber = passengerCountForm.dataset.value
     const carpoolCount = carpoolCountInput.value
 
-    if (!start.trim() || typeof start !== 'string') {
+    if (typeof start !== 'string' || !start.trim()) {
       throw new Error('출발지 정보를 입력해주세요.')
     }
-    if (!goal.trim() || typeof goal !== 'string') {
+    if (typeof goal !== 'string' || !goal.trim()) {
       throw new Error('도착지 정보를 입력해주세요.')
     }
     if (typeof passengerNumber === 'undefined' || Number.isNaN(passengerNumber)) {
@@ -197,6 +195,7 @@ function registerIntroStep() {
 }
 
 function registerJusoStep() {
+  const addressForm = document.getElementById('address') as HTMLUListElement
   const adressServiceWrapper = document.getElementById('address-service-wrap') as HTMLDivElement
   const addressServiceCloseBtn = document.querySelector('#address-service-wrap .close') as HTMLButtonElement
   // 출발지, 도착지 주소 정보 검색
@@ -206,17 +205,14 @@ function registerJusoStep() {
     // iframe을 넣은 element를 보이게 한다.
     adressServiceWrapper.style.display = 'block'
     const currentScroll = Math.max(document.body.scrollTop, document.documentElement.scrollTop)
-    if (target instanceof HTMLInputElement) {
+    if (target instanceof HTMLButtonElement) {
+      target.blur()
       // @ts-ignore
       new daum.Postcode({
         oncomplete: (data) => {
           let address = data.address
-          if (target.id === 'startRoadFullAddr') {
-            target.value = address
-          }
-          if (target.id === 'destRoadFullAddr') {
-            target.value = address
-          }
+          target.dataset.value = address
+          target.innerHTML = address
           // iframe을 넣은 element를 안보이게 한다.
           // (autoClose:false 기능을 이용한다면, 아래 코드를 제거해야 화면에서 사라지지 않는다.)
           adressServiceWrapper.style.display = 'none'

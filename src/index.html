@@ -66,20 +66,22 @@
             <h1 class="text-h3 text-gray-900">출발지와 도착지 정보를 입력해주세요.</h1>
             <ul id="address" class="mt-58 flex flex-col gap-8">
               <li>
-                <input
-                  class="w-full border-b border-gray-200 px-16 pb-17 pt-15 text-b2-semibold text-gray-900 placeholder:text-b2-regular placeholder:text-gray-400 [&:not(:placeholder-shown)]:border-violet-300"
-                  placeholder="출발지"
-                  type="text"
+                <button
+                  class="w-full border-b border-gray-200 px-16 pb-17 pt-15 text-left text-b2-semibold text-gray-900 data-[value='']:text-b2-regular data-[value='']:text-gray-400 [&:not([data-value=''])]:border-violet-300"
                   id="startRoadFullAddr"
-                />
+                  data-value=""
+                >
+                  출발지
+                </button>
               </li>
               <li>
-                <input
-                  class="w-full border-b border-gray-200 px-16 pb-17 pt-15 text-b2-semibold text-gray-900 placeholder:text-b2-regular placeholder:text-gray-400 [&:not(:placeholder-shown)]:border-violet-300"
-                  placeholder="도착지"
-                  type="text"
+                <button
+                  class="w-full border-b border-gray-200 px-16 pb-17 pt-15 text-left text-b2-semibold text-gray-900 data-[value='']:text-b2-regular data-[value='']:text-gray-400 [&:not([data-value=''])]:border-violet-300"
                   id="destRoadFullAddr"
-                />
+                  data-value=""
+                >
+                  도착지
+                </button>
               </li>
             </ul>
           </div>
