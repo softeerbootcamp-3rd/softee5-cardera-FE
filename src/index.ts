@@ -118,11 +118,44 @@ step.subscribe('presents', () => {
 })
 
 function getFormData() {
-  const start = startRoadFullAddressInput.value
-  const goal = destRoadFullAddressInput.value
-  const passengerNumber = Number(passengerCountForm.dataset.value)
-  const carpoolCount = Number(carpoolCountInput.value)
-  return { start, goal, carpoolCount, passengerNumber }
+  try {
+    const start = startRoadFullAddressInput.value
+    const goal = destRoadFullAddressInput.value
+    const passengerNumber = passengerCountForm.dataset.value
+    const carpoolCount = carpoolCountInput.value
+
+    if (!start.trim() || typeof start !== 'string') {
+      throw new Error('출발지 정보를 입력해주세요.')
+    }
+    if (!goal.trim() || typeof goal !== 'string') {
+      throw new Error('도착지 정보를 입력해주세요.')
+    }
+    if (typeof passengerNumber === 'undefined' || Number.isNaN(passengerNumber)) {
+      throw new Error('동승자 정보를 입력해주세요.')
+    }
+    if (!carpoolCount.trim() || Number.isNaN(carpoolCount)) {
+      throw new Error('카풀 횟수를 입력해주세요.')
+    }
+
+    return { start, goal, carpoolCount: Number(carpoolCount), passengerNumber: Number(passengerNumber) }
+  } catch (err) {
+    throw err
+  }
+}
+
+function validateFormData({
+  onSuccess,
+  onError,
+}: {
+  onSuccess?: (...arg: unknown[]) => unknown
+  onError?: (...arg: unknown[]) => unknown
+}) {
+  try {
+    getFormData()
+    onSuccess?.()
+  } catch (err) {
+    onError?.(err.message)
+  }
 }
 
 function registerIntroStep() {
@@ -202,7 +235,7 @@ function registerCarpoolCountStep() {
     step.prevStep()
   })
   nextButton.addEventListener('click', () => {
-    step.nextStep()
+    validateFormData({ onSuccess: () => step.nextStep(), onError: (message) => alert(message) })
   })
 }
 
