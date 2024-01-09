@@ -136,7 +136,6 @@
   .step-slider {
     @apply absolute h-2 w-[calc(33%-16px)] rounded-full bg-violet-300;
     transition: 0.25s ease-out;
-    z-index: 1;
   }
 
   select {

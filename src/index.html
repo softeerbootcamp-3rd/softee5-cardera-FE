@@ -15,7 +15,7 @@
   </head>
   <body>
     <div class="app">
-      <header id="header" class="sticky top-0 z-[1500] flex h-48 w-full justify-between bg-white px-3"></header>
+      <header id="header" class="sticky top-0 z-[100] flex h-48 w-full justify-between bg-white px-3"></header>
 
       <main class="layout">
         <!-- 온보딩 스텝 -->
@@ -434,6 +434,15 @@
           <li class="flex-1 rounded-full bg-gray-200"></li>
           <li class="step-slider"></li>
         </ul>
+
+        <div id="address-service-wrap" class="absolute inset-0 z-[1500] hidden">
+          <header class="absolute inset-x-0 -top-48 flex h-48 justify-between bg-white">
+            <h1 class="py-13 pl-20 align-middle text-b1-semibold">주소 찾기</h1>
+            <button type="button" class="close p-12">
+              <img src="../assets/close.svg" />
+            </button>
+          </header>
+        </div>
       </main>
     </div>
     <script src="./index.ts" type="module"></script>
