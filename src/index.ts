@@ -57,14 +57,14 @@ step.subscribe('presents', () => {
 })
 step.subscribe('result', async () => {
   setHeader()
-  // const formData = getFormData()
+  const formData = getFormData()
   // WIP: mocking data 삭제 예정
-  const formData = {
-    start: '서울 광진구 동일로 10',
-    goal: '서울 노원구 동일로 182길 63-1',
-    passengerNumber: 1,
-    carpoolCount: 10,
-  }
+  // const formData = {
+  //   start: '서울 노원구 동일로 182길 63-1',
+  //   goal: '서울 노원구 동일로 182길 63-1',
+  //   passengerNumber: 1,
+  //   carpoolCount: 10,
+  // }
   const data = await getFuelPrice(formData)
 
   const fuelPriceElement = document.getElementById('fuel-price') as HTMLElement
@@ -162,6 +162,9 @@ function getFormData() {
     }
     if (!carpoolCount.trim() || Number.isNaN(carpoolCount)) {
       throw new Error('카풀 횟수를 입력해주세요.')
+    }
+    if (start === goal) {
+      throw new Error('출발지와 도착지를 다르게 설정해주세요.')
     }
 
     return { start, goal, carpoolCount: Number(carpoolCount), passengerNumber: Number(passengerNumber) }
