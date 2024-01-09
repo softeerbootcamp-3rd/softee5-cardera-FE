@@ -1,4 +1,4 @@
-import { dummyData, wait } from './api'
+import { dummyData, getFuelPrice, petchChoice, wait } from './api'
 import { renderGiftItems } from './presents'
 import { Step } from './step'
 
@@ -57,16 +57,23 @@ step.subscribe('presents', () => {
 })
 step.subscribe('result', async () => {
   setHeader()
-  const formData = getFormData()
-  // FIX: 더미 데이터를 실제 API 로 변경
-  const { fuelPrice, tipOptions } = await wait(() => dummyData)
+  // const formData = getFormData()
+  // WIP: mocking data 삭제 예정
+  const formData = {
+    start: '서울 광진구 동일로 10',
+    goal: '부산 부산진구 가야공원로 1',
+    passengerNumber: 4,
+    carpoolCount: 10,
+  }
+  const data = await getFuelPrice(formData)
 
   const fuelPriceElement = document.getElementById('fuel-price') as HTMLElement
 
-  fuelPriceElement.innerHTML = `${fuelPrice.toLocaleString()} 원`
-  tipOptionsElement.innerHTML = tipOptions
-    .map((option) => {
-      return `
+  fuelPriceElement.innerHTML = `${data?.fuelPrice.toLocaleString()} 원`
+  tipOptionsElement.innerHTML = data
+    ? data.tipOptions
+        .map((option) => {
+          return `
         <label>
           <input
             type="radio"
@@ -78,8 +85,9 @@ step.subscribe('result', async () => {
           <div class="text-b3-semibold rounded-4 bg-gray-200 text-gray-900 px-12 py-8 peer-checked:bg-gray-900 peer-checked:text-white">x ${option.multiple}배</div>
         </label>
       `
-    })
-    .join('')
+        })
+        .join('')
+    : ''
 
   const tipOptionRadios = document.querySelectorAll("input[name='tip-option']")
   const tipDescription = document.getElementById('tip-description')
@@ -89,8 +97,8 @@ step.subscribe('result', async () => {
       if (!target) return
       const tip = (target as HTMLInputElement).value
       tipOptionsElement.dataset.value = tip
-      tipDescription!.innerHTML = `${tipOptions[index].choiceCount.toLocaleString()}명의 유저가 선택했어요!`
-      fuelPriceElement.innerHTML = `${(Number(tip) * fuelPrice).toLocaleString()} 원`
+      tipDescription!.innerHTML = `${data?.tipOptions[index].choiceCount.toLocaleString()}명의 유저가 선택했어요!`
+      fuelPriceElement.innerHTML = `${(Number(tip) * (data?.fuelPrice ?? 0)).toLocaleString()} 원`
     })
   })
 })
@@ -191,16 +199,22 @@ function registerResultStep() {
   // 스텝 변경
   const prevButton = document.querySelector('#result-step-button > .thanks-button') as HTMLElement
   const nextButton = document.querySelector('#result-step-button > .presents-button') as HTMLElement
-  prevButton.addEventListener('click', () => {
-    step.setStep('thanks-phrases')
+  prevButton.addEventListener('click', async () => {
+    // TODO
+    // - 감사 문구 리스트 스텝으로 이동
+    // - 수고비 옵션 선택 api 호출
+    alert('준비 중인 기능입니다!')
   })
-  nextButton.addEventListener('click', () => {
+  nextButton.addEventListener('click', async () => {
     step.setStep('presents')
+
+    const multiple = Number(tipOptionsElement.dataset.value)
+    await petchChoice({ multiple })
   })
 }
 
 function main() {
-  step.setStep('presents')
+  step.setStep('result')
   registerIntroStep()
   registerJusoStep()
   registerPassengerCountStep()
