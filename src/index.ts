@@ -57,14 +57,14 @@ step.subscribe('presents', () => {
 })
 step.subscribe('result', async () => {
   setHeader()
-  // const formData = getFormData()
+  const formData = getFormData()
   // WIP: mocking data 삭제 예정
-  const formData = {
-    start: '서울 광진구 동일로 10',
-    goal: '부산 부산진구 가야공원로 1',
-    passengerNumber: 4,
-    carpoolCount: 10,
-  }
+  // const formData = {
+  //   start: '서울 광진구 동일로 10',
+  //   goal: '부산 부산진구 가야공원로 1',
+  //   passengerNumber: 4,
+  //   carpoolCount: 10,
+  // }
   const data = await getFuelPrice(formData)
 
   const fuelPriceElement = document.getElementById('fuel-price') as HTMLElement
@@ -220,12 +220,13 @@ function registerResultStep() {
     step.setStep('presents')
 
     const multiple = Number(tipOptionsElement.dataset.value)
+    if (multiple === 1) return
     await petchChoice({ multiple })
   })
 }
 
 function main() {
-  step.setStep('result')
+  step.setStep('intro')
   registerIntroStep()
   registerJusoStep()
   registerPassengerCountStep()

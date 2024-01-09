@@ -322,7 +322,7 @@ const healthyGiftsData: Gift[] = [
 ]
 
 function giftItemTemplate(gift: Gift) {
-  return `<li class="w-152">
+  return `<li class="w-152 flex flex-col" onclick="alert('상품 상세 페이지 준비 중입니다!')">
             <p class="text-c1-regular text-gray-500">
               <strong class="text-c1-semibold text-violet-300">
                 ${gift.choiceCount}
@@ -337,11 +337,13 @@ function giftItemTemplate(gift: Gift) {
                 alt=${gift.name}
               />
             </div>
-            <span class="pb-4 text-c2 text-gray-500">${gift.brandName}</span>
-            <p class="line-clamp-2 text-b3-regular text-black">
-              ${gift.name}
-            </p>
-            <p class="py-10 text-b2-semibold text-black">50000원</p>
+            <div class="flex-1 flex flex-col">
+              <span class="pb-4 text-c2 text-gray-500">${gift.brandName}</span>
+              <p class="line-clamp-2 flex-1 text-b3-regular text-black">
+                ${gift.name}
+              </p>
+              <p class="py-10 text-b2-semibold text-black">${gift.price.toLocaleString()}</p>
+            </div>
             <div
               class="flex justify-end border-t border-gray-200 py-6"
             >
