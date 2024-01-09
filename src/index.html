@@ -16,11 +16,41 @@
 
       <main class="layout">
         <!-- 온보딩 스텝 -->
-        <section class="hidden" data-step="intro">
-          <!-- TODO: 온보딩 디자인 -->
-          Intro
-          <div id="intro-step-button">
-            <button type="button" class="next-button">다음으로</button>
+        <section
+          class="relative flex hidden h-[calc(100dvh-48px)] flex-col px-20"
+          data-step="intro"
+        >
+          <div class="flex w-240 grow-[3] items-start">
+            <img src="../assets/onboard-top.svg" alt="온보딩" />
+          </div>
+          <div class="grow-[2]">
+            <img src="../assets/onboard-bottom.svg" alt="온보딩" />
+          </div>
+          <div class="grow-[1]">
+            <div id="intro-step-button">
+              <button
+                type="button"
+                class="next-button w-full rounded-8 bg-violet-300 py-18 text-center text-b1-semibold text-white"
+              >
+                로그인 없이 시작하기
+              </button>
+            </div>
+            <p
+              class="text-c3 flex items-center gap-11 py-24 text-gray-700 before:h-1 before:flex-1 before:bg-gray-300 before:content-[''] after:h-1 after:flex-1 after:bg-gray-300 after:content-['']"
+            >
+              간편 로그인으로 카더라의 회원이 되어보세요
+            </p>
+            <ul class="flex justify-center gap-15">
+              <li>
+                <button><img src="../assets/google-logo.svg" /></button>
+              </li>
+              <li>
+                <button><img src="../assets/naver-logo.svg" /></button>
+              </li>
+              <li>
+                <button><img src="../assets/apple-logo.svg" /></button>
+              </li>
+            </ul>
           </div>
         </section>
 
