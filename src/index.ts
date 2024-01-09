@@ -57,19 +57,41 @@ step.subscribe('presents', () => {
 })
 step.subscribe('result', async () => {
   setHeader()
-  const formData = getFormData()
+  // const formData = getFormData()
   // WIP: mocking data 삭제 예정
-  // const formData = {
-  //   start: '서울 광진구 동일로 10',
-  //   goal: '부산 부산진구 가야공원로 1',
-  //   passengerNumber: 4,
-  //   carpoolCount: 10,
-  // }
+  const formData = {
+    start: '서울 광진구 동일로 10',
+    goal: '서울 노원구 동일로 182길 63-1',
+    passengerNumber: 1,
+    carpoolCount: 10,
+  }
   const data = await getFuelPrice(formData)
 
   const fuelPriceElement = document.getElementById('fuel-price') as HTMLElement
 
-  fuelPriceElement.innerHTML = `${(data?.fuelPrice ?? 0).toLocaleString()} 원`
+  // easeOutExpo 애니매이션 함수
+  // see https://easings.net/ko#easeOutExpo
+  const easeOutExpo = (x: number) => {
+    return x === 1 ? 1 : 1 - Math.pow(2, -10 * x)
+  }
+  // count up 애니매이션 구현 함수
+  const countUp = (cur: number, target: number) => {
+    const frameRate = 1000 / 60
+    const totalFrame = Math.round(2000 / frameRate)
+    let currentNumber = 0
+    const counter = setInterval(() => {
+      const progressRate = easeOutExpo(++currentNumber / totalFrame)
+      fuelPriceElement.innerHTML = `${(cur + Math.round((target - cur) * progressRate)).toLocaleString()} 원`
+
+      // 진행 완료시 interval 해제
+      if (progressRate === 1) {
+        clearInterval(counter)
+      }
+    }, frameRate)
+  }
+
+  fuelPriceElement.dataset.value = String(data?.fuelPrice ?? 0)
+  countUp(0, data?.fuelPrice ?? 0)
   tipOptionsElement.innerHTML = data
     ? data.tipOptions
         .map((option) => {
@@ -103,12 +125,17 @@ step.subscribe('result', async () => {
         tipOptionsElement.dataset.value = '1'
         button.dataset.checked = 'false'
         tipDescription.innerHTML = '가장 많은 유저들이 1.5배의 팁을 선택해요!'
-        fuelPriceElement.innerHTML = `${(data?.fuelPrice ?? 0).toLocaleString()} 원`
+        const currentValue = Number(fuelPriceElement.dataset.value)
+        const nextValue = data?.fuelPrice ?? 0
+        countUp(currentValue, nextValue)
       } else {
         tipOptionsElement.dataset.value = tip
         button.dataset.checked = 'true'
         tipDescription.innerHTML = `${data?.tipOptions[index].choiceCount.toLocaleString()}명의 유저가 선택했어요!`
-        fuelPriceElement.innerHTML = `${(Number(tip) * (data?.fuelPrice ?? 0)).toLocaleString()} 원`
+        const currentValue = Number(fuelPriceElement.dataset.value)
+        const nextValue = Number(tip) * (data?.fuelPrice ?? 0)
+        fuelPriceElement.dataset.value = String(nextValue)
+        countUp(currentValue, nextValue)
       }
     })
   })
