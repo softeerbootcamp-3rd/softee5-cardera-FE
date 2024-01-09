@@ -69,36 +69,47 @@ step.subscribe('result', async () => {
 
   const fuelPriceElement = document.getElementById('fuel-price') as HTMLElement
 
-  fuelPriceElement.innerHTML = `${data?.fuelPrice.toLocaleString()} 원`
+  fuelPriceElement.innerHTML = `${(data?.fuelPrice ?? 0).toLocaleString()} 원`
   tipOptionsElement.innerHTML = data
     ? data.tipOptions
         .map((option) => {
           return `
-        <label>
-          <input
-            type="radio"
-            class="peer"
-            name="tip-option"
-            value="${option.multiple}"
-            hidden
-          />
-          <div class="text-b3-semibold rounded-4 bg-gray-200 text-gray-900 px-12 py-8 peer-checked:bg-gray-900 peer-checked:text-white">x ${option.multiple}배</div>
-        </label>
-      `
+                <button
+                  type="button"
+                  name="tip-option"
+                  data-value="${option.multiple}"
+                  class="rounded-4 bg-gray-200 px-12 py-8 text-b3-semibold text-gray-900 data-[checked=true]:bg-gray-900 data-[checked=true]:text-white"
+                  data-checked="false"
+                >
+                  x ${option.multiple}배
+                </button>
+              `
         })
         .join('')
     : ''
 
-  const tipOptionRadios = document.querySelectorAll("input[name='tip-option']")
-  const tipDescription = document.getElementById('tip-description')
+  const tipOptionButtons = document.querySelectorAll<HTMLInputElement>('button[name=tip-option]')
+  const tipDescription = document.getElementById('tip-description') as HTMLElement
+  tipDescription.innerHTML = '가장 많은 유저들이 1.5배의 팁을 선택해요!'
 
-  tipOptionRadios.forEach((radio, index) => {
-    radio.addEventListener('change', ({ target }) => {
+  tipOptionButtons.forEach((button, index) => {
+    button.addEventListener('click', ({ target }) => {
       if (!target) return
-      const tip = (target as HTMLInputElement).value
-      tipOptionsElement.dataset.value = tip
-      tipDescription!.innerHTML = `${data?.tipOptions[index].choiceCount.toLocaleString()}명의 유저가 선택했어요!`
-      fuelPriceElement.innerHTML = `${(Number(tip) * (data?.fuelPrice ?? 0)).toLocaleString()} 원`
+      const tip = (target as HTMLButtonElement).dataset.value
+      const checked = (target as HTMLButtonElement).dataset.checked === 'true'
+      tipOptionButtons.forEach((el) => (el.dataset.checked = 'false'))
+
+      if (checked) {
+        tipOptionsElement.dataset.value = '1'
+        button.dataset.checked = 'false'
+        tipDescription.innerHTML = '가장 많은 유저들이 1.5배의 팁을 선택해요!'
+        fuelPriceElement.innerHTML = `${(data?.fuelPrice ?? 0).toLocaleString()} 원`
+      } else {
+        tipOptionsElement.dataset.value = tip
+        button.dataset.checked = 'true'
+        tipDescription.innerHTML = `${data?.tipOptions[index].choiceCount.toLocaleString()}명의 유저가 선택했어요!`
+        fuelPriceElement.innerHTML = `${(Number(tip) * (data?.fuelPrice ?? 0)).toLocaleString()} 원`
+      }
     })
   })
 })
