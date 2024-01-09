@@ -8,47 +8,47 @@ const healthyGifts = document.getElementById('healthy-gifts') as HTMLUListElemen
 const heart = new URL('../assets/heart.svg', import.meta.url)
 // gift image URLs
 const fuelGiftImages = [
-  new URL('../assets/fuel-gifts/image1.png?as=webp&width=152', import.meta.url),
-  new URL('../assets/fuel-gifts/image2.png?as=webp&width=152', import.meta.url),
-  new URL('../assets/fuel-gifts/image3.png?as=webp&width=152', import.meta.url),
-  new URL('../assets/fuel-gifts/image4.png?as=webp&width=152', import.meta.url),
-  new URL('../assets/fuel-gifts/image5.png?as=webp&width=152', import.meta.url),
-  new URL('../assets/fuel-gifts/image6.png?as=webp&width=152', import.meta.url),
+  new URL('../assets/fuel-gifts/image1.png?width=152', import.meta.url),
+  new URL('../assets/fuel-gifts/image2.png?width=152', import.meta.url),
+  new URL('../assets/fuel-gifts/image3.png?width=152', import.meta.url),
+  new URL('../assets/fuel-gifts/image4.png?width=152', import.meta.url),
+  new URL('../assets/fuel-gifts/image5.png?width=152', import.meta.url),
+  new URL('../assets/fuel-gifts/image6.png?width=152', import.meta.url),
 ]
 const brandGiftImages = [
-  new URL('../assets/brand-gifts/image1.png?as=webp&width=152', import.meta.url),
-  new URL('../assets/brand-gifts/image2.png?as=webp&width=152', import.meta.url),
-  new URL('../assets/brand-gifts/image3.png?as=webp&width=152', import.meta.url),
-  new URL('../assets/brand-gifts/image4.png?as=webp&width=152', import.meta.url),
-  new URL('../assets/brand-gifts/image5.png?as=webp&width=152', import.meta.url),
+  new URL('../assets/brand-gifts/image1.png?width=152', import.meta.url),
+  new URL('../assets/brand-gifts/image2.png?width=152', import.meta.url),
+  new URL('../assets/brand-gifts/image3.png?width=152', import.meta.url),
+  new URL('../assets/brand-gifts/image4.png?width=152', import.meta.url),
+  new URL('../assets/brand-gifts/image5.png?width=152', import.meta.url),
 ]
 const departmentStoreGiftImages = [
-  new URL('../assets/department-store-gifts/image1.png?as=webp&width=152', import.meta.url),
-  new URL('../assets/department-store-gifts/image2.png?as=webp&width=152', import.meta.url),
-  new URL('../assets/department-store-gifts/image3.png?as=webp&width=152', import.meta.url),
-  new URL('../assets/department-store-gifts/image4.png?as=webp&width=152', import.meta.url),
-  new URL('../assets/department-store-gifts/image5.png?as=webp&width=152', import.meta.url),
+  new URL('../assets/department-store-gifts/image1.png?width=152', import.meta.url),
+  new URL('../assets/department-store-gifts/image2.png?width=152', import.meta.url),
+  new URL('../assets/department-store-gifts/image3.png?width=152', import.meta.url),
+  new URL('../assets/department-store-gifts/image4.png?width=152', import.meta.url),
+  new URL('../assets/department-store-gifts/image5.png?width=152', import.meta.url),
 ]
 const bestGiftImages = [
-  new URL('../assets/best-gifts/image1.png?as=webp&width=152', import.meta.url),
-  new URL('../assets/best-gifts/image2.png?as=webp&width=152', import.meta.url),
-  new URL('../assets/best-gifts/image3.png?as=webp&width=152', import.meta.url),
-  new URL('../assets/best-gifts/image4.png?as=webp&width=152', import.meta.url),
-  new URL('../assets/best-gifts/image5.png?as=webp&width=152', import.meta.url),
+  new URL('../assets/best-gifts/image1.png?width=152', import.meta.url),
+  new URL('../assets/best-gifts/image2.png?width=152', import.meta.url),
+  new URL('../assets/best-gifts/image3.png?width=152', import.meta.url),
+  new URL('../assets/best-gifts/image4.png?width=152', import.meta.url),
+  new URL('../assets/best-gifts/image5.png?width=152', import.meta.url),
 ]
 const luxuryGiftImages = [
-  new URL('../assets/luxury-gifts/image1.png?as=webp&width=152', import.meta.url),
-  new URL('../assets/luxury-gifts/image2.png?as=webp&width=152', import.meta.url),
-  new URL('../assets/luxury-gifts/image3.png?as=webp&width=152', import.meta.url),
-  new URL('../assets/luxury-gifts/image4.png?as=webp&width=152', import.meta.url),
-  new URL('../assets/luxury-gifts/image5.png?as=webp&width=152', import.meta.url),
+  new URL('../assets/luxury-gifts/image1.png?width=152', import.meta.url),
+  new URL('../assets/luxury-gifts/image2.png?width=152', import.meta.url),
+  new URL('../assets/luxury-gifts/image3.png?width=152', import.meta.url),
+  new URL('../assets/luxury-gifts/image4.png?width=152', import.meta.url),
+  new URL('../assets/luxury-gifts/image5.png?width=152', import.meta.url),
 ]
 const healthyGiftImages = [
-  new URL('../assets/healthy-gifts/image1.png?as=webp&width=152', import.meta.url),
-  new URL('../assets/healthy-gifts/image2.png?as=webp&width=152', import.meta.url),
-  new URL('../assets/healthy-gifts/image3.png?as=webp&width=152', import.meta.url),
-  new URL('../assets/healthy-gifts/image4.png?as=webp&width=152', import.meta.url),
-  new URL('../assets/healthy-gifts/image5.png?as=webp&width=152', import.meta.url),
+  new URL('../assets/healthy-gifts/image1.png?width=152', import.meta.url),
+  new URL('../assets/healthy-gifts/image2.png?width=152', import.meta.url),
+  new URL('../assets/healthy-gifts/image3.png?width=152', import.meta.url),
+  new URL('../assets/healthy-gifts/image4.png?width=152', import.meta.url),
+  new URL('../assets/healthy-gifts/image5.png?width=152', import.meta.url),
 ]
 
 interface Gift {
