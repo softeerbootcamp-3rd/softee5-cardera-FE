@@ -5,18 +5,10 @@ const header = document.getElementById('header') as HTMLHeadElement
 
 const addressForm = document.getElementById('address') as HTMLUListElement
 
-const passengerCountForm = document.getElementById(
-  'passenger-count-form'
-) as HTMLDivElement
-const startRoadFullAddressInput = document.getElementById(
-  'startRoadFullAddr'
-) as HTMLInputElement
-const destRoadFullAddressInput = document.getElementById(
-  'destRoadFullAddr'
-) as HTMLInputElement
-const carpoolCountInput = document.getElementById(
-  'carpool-count'
-) as HTMLInputElement
+const passengerCountForm = document.getElementById('passenger-count-form') as HTMLDivElement
+const startRoadFullAddressInput = document.getElementById('startRoadFullAddr') as HTMLInputElement
+const destRoadFullAddressInput = document.getElementById('destRoadFullAddr') as HTMLInputElement
+const carpoolCountInput = document.getElementById('carpool-count') as HTMLInputElement
 const tipOptionsElement = document.getElementById('tip-options') as HTMLElement
 
 // step 정의
@@ -96,12 +88,8 @@ step.subscribe('result', async () => {
       if (!target) return
       const tip = (target as HTMLInputElement).value
       tipOptionsElement.dataset.value = tip
-      tipDescription!.innerHTML = `${tipOptions[
-        index
-      ].choiceCount.toLocaleString()}명의 유저가 선택했어요!`
-      fuelPriceElement.innerHTML = `${(
-        Number(tip) * fuelPrice
-      ).toLocaleString()} 원`
+      tipDescription!.innerHTML = `${tipOptions[index].choiceCount.toLocaleString()}명의 유저가 선택했어요!`
+      fuelPriceElement.innerHTML = `${(Number(tip) * fuelPrice).toLocaleString()} 원`
     })
   })
 })
@@ -116,9 +104,7 @@ function getFormData() {
 
 function registerIntroStep() {
   // 스텝 변경
-  const nextButton = document.querySelector(
-    '#intro-step-button > .next-button'
-  ) as HTMLElement
+  const nextButton = document.querySelector('#intro-step-button > .next-button') as HTMLElement
   nextButton.addEventListener('click', () => {
     step.nextStep()
   })
@@ -145,21 +131,15 @@ function registerJusoStep() {
   })
 
   // 스텝 변경
-  const nextButton = document.querySelector(
-    '#juso-step-button > .next-button'
-  ) as HTMLElement
+  const nextButton = document.querySelector('#juso-step-button > .next-button') as HTMLElement
   nextButton.addEventListener('click', () => {
     step.nextStep()
   })
 }
 
 function registerPassengerCountStep() {
-  const passengerCountRadios = document.querySelectorAll<HTMLInputElement>(
-    "input[name='passenger-count']"
-  )
-  const passengerCountInput = document.getElementById(
-    'passenger-count-input'
-  ) as HTMLInputElement
+  const passengerCountRadios = document.querySelectorAll<HTMLInputElement>("input[name='passenger-count']")
+  const passengerCountInput = document.getElementById('passenger-count-input') as HTMLInputElement
 
   passengerCountRadios.forEach((radio) => {
     radio.addEventListener('change', ({ target }) => {
@@ -181,12 +161,8 @@ function registerPassengerCountStep() {
   })
 
   // 스텝 변경
-  const prevButton = document.querySelector(
-    '#passenger-count-step-button > .prev-button'
-  ) as HTMLElement
-  const nextButton = document.querySelector(
-    '#passenger-count-step-button > .next-button'
-  ) as HTMLElement
+  const prevButton = document.querySelector('#passenger-count-step-button > .prev-button') as HTMLElement
+  const nextButton = document.querySelector('#passenger-count-step-button > .next-button') as HTMLElement
   prevButton.addEventListener('click', () => {
     step.prevStep()
   })
@@ -197,12 +173,8 @@ function registerPassengerCountStep() {
 
 function registerCarpoolCountStep() {
   // 스텝 변경
-  const prevButton = document.querySelector(
-    '#carpool-count-step-button > .prev-button'
-  ) as HTMLElement
-  const nextButton = document.querySelector(
-    '#carpool-count-step-button > .next-button'
-  ) as HTMLElement
+  const prevButton = document.querySelector('#carpool-count-step-button > .prev-button') as HTMLElement
+  const nextButton = document.querySelector('#carpool-count-step-button > .next-button') as HTMLElement
   prevButton.addEventListener('click', () => {
     step.prevStep()
   })
@@ -213,12 +185,8 @@ function registerCarpoolCountStep() {
 
 function registerResultStep() {
   // 스텝 변경
-  const prevButton = document.querySelector(
-    '#result-step-button > .thanks-button'
-  ) as HTMLElement
-  const nextButton = document.querySelector(
-    '#result-step-button > .presents-button'
-  ) as HTMLElement
+  const prevButton = document.querySelector('#result-step-button > .thanks-button') as HTMLElement
+  const nextButton = document.querySelector('#result-step-button > .presents-button') as HTMLElement
   prevButton.addEventListener('click', () => {
     step.setStep('thanks-phrases')
   })
