@@ -125,6 +125,7 @@ step.subscribe('result', async () => {
         tipDescription.innerHTML = '가장 많은 유저들이 1.5배의 팁을 선택해요!'
         const currentValue = Number(fuelPriceElement.dataset.value)
         const nextValue = data?.fuelPrice ?? 0
+        fuelPriceElement.dataset.value = String(nextValue)
         countUp(currentValue, nextValue)
       } else {
         tipOptionsElement.dataset.value = tip
