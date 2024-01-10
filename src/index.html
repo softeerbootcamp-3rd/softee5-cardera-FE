@@ -132,6 +132,8 @@
               <div class="relative mt-22">
                 <input
                   type="number"
+                  type="number"
+                  inputmode="numeric"
                   placeholder="5명 이상인 경우 입력해주세요."
                   class="w-full rounded-5 border border-gray-200 bg-white py-10 pl-28 pr-42 text-right align-middle text-h1 text-violet-300 placeholder:text-left placeholder:text-b1-semibold placeholder:text-gray-400"
                   id="passenger-count-input"
@@ -166,6 +168,8 @@
             <div class="relative mt-60" for="carpool-count">
               <input
                 type="number"
+                inputmode="numeric"
+                pattern="[0-9]*"
                 placeholder="횟수를 입력해 주세요."
                 class="w-full rounded-5 border border-gray-200 bg-white py-10 pl-28 pr-42 text-right align-middle text-h1 text-violet-300 placeholder:text-left placeholder:text-b1-semibold placeholder:text-gray-400"
                 id="carpool-count"
